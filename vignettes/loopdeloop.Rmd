@@ -54,7 +54,7 @@ p <-
 
 In order to demonstrate a feedback loop we `rbind` a fictional edge to the demonstration data.
 Note that this feedback loop does not make any sense in the context of the data. It only
-serves as proof of principle. With the \code{\link[ggplot2]{\%+\%}} operator we update the plot
+serves as proof of principle. With the `%+%` operator we update the plot
 with the data that includes the feedback loop.
 
 ```{r back}
@@ -77,7 +77,7 @@ p %+% es_subset_feedback
 
 Edges don't even have to flow from one stage to another regardless of its direction. Instead,
 it is also possible to let an edge flow from and to the same stage. In fact, you
-can even let anedge flow from and to the same node. This is illustrated in the example
+can even let an edge flow from and to the same node. This is illustrated in the example
 below, we we `rbind` a fictional self-referencing node. Again, in the context of the
 data, this self-reference does not make sense, but it serves as proof of principle.
 
