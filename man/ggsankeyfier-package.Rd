@@ -10,6 +10,15 @@
 
 Sankey and alluvial diagrams visualise flows of quantities across stages in stacked bars. This package makes it easy to create such diagrams using 'ggplot2'.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://pepijn-devries.github.io/ggsankeyfier/}
+  \item \url{https://github.com/pepijn-devries/ggsankeyfier/}
+  \item Report bugs at \url{https://github.com/pepijn-devries/ggsankeyfier/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Pepijn de Vries \email{pepijn.devries@outlook.com} (\href{https://orcid.org/0000-0002-7961-6646}{ORCID}) [data contributor]
 

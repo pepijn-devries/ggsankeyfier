@@ -1,7 +1,7 @@
 Package: ggsankeyfier
 Type: Package
 Title: Create Sankey and Alluvial Diagrams Using 'ggplot2'
-Version: 0.1.2
+Version: 0.1.3
 Date: 2024-02-29
 Authors@R: c(person("Pepijn", "de Vries", role = c("aut", "cre", "dtc"),
     email = "pepijn.devries@outlook.com",
@@ -68,3 +68,5 @@ Collate:
     'stat_node.r'
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+URL: https://pepijn-devries.github.io/ggsankeyfier/, https://github.com/pepijn-devries/ggsankeyfier/
+BugReports: https://github.com/pepijn-devries/ggsankeyfier/issues
