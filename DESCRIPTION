@@ -1,7 +1,7 @@
 Package: ggsankeyfier
 Type: Package
 Title: Create Sankey and Alluvial Diagrams Using 'ggplot2'
-Version: 0.1.6
+Version: 0.1.7
 Date: 2024-02-29
 Authors@R: c(person("Pepijn", "de Vries", role = c("aut", "cre", "dtc"),
     email = "pepijn.devries@outlook.com",
@@ -28,7 +28,7 @@ Depends:
     R (>= 4.1.0)
 Imports:
     dplyr,
-    ggplot2 (>= 3.5.0),
+    ggplot2 (>= 3.4.4),
     grid (>= 4.1.0),
     gridBezier,
     methods,

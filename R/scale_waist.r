@@ -34,28 +34,28 @@
 scale_waist_continuous <- function(..., range = c(0, 1)) {
   rlang::warn(c("Legend is not really suitable for a continuous `waist` scale",
                 i = "Apply a binned scale instead"))
-  ggplot2::continuous_scale("waist", palette = scales::rescale_pal(range), ...)
+  ggplot2::continuous_scale("waist", NULL, palette = scales::rescale_pal(range), ...)
 }
 
 #' @name scale_waist_datetime
 #' @rdname scale_waist
 #' @export
 scale_waist_datetime <- function(..., range = c(0, 1)) {
-  ggplot2::datetime_scale("waist", palette = scales::rescale_pal(range), ...)
+  ggplot2::datetime_scale("waist", NULL, palette = scales::rescale_pal(range), ...)
 }
 
 #' @name scale_waist_binned
 #' @rdname scale_waist
 #' @export
 scale_waist_binned <- function(..., range = c(0, 1)) {
-  ggplot2::binned_scale("waist", palette = scales::rescale_pal(range), ...)
+  ggplot2::binned_scale("waist", NULL, palette = scales::rescale_pal(range), ...)
 }
 
 #' @name scale_waist_discrete
 #' @rdname scale_waist
 #' @export
 scale_waist_discrete <- function(..., range = c(0, 1)) {
-  ggplot2::discrete_scale("waist", palette = function(value) {
+  ggplot2::discrete_scale("waist", NULL, palette = function(value) {
     seq(range[[1]], range[[2]], length.out = value)
   }, ...)
 }
@@ -85,7 +85,7 @@ scale_waist_manual <- function (..., values = NULL, breaks = ggplot2::waiver()) 
     }
     values
   }
-  ggplot2::discrete_scale("waist", palette = pal,
+  ggplot2::discrete_scale("waist", NULL, palette = pal,
                           breaks = breaks, ...)
 }
 
