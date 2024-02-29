@@ -52,7 +52,7 @@ columns (i.e., wide format) to a long format. All you need to do is specify whic
 the stages, which numeric column quantifies the size of each flow and if there are specific aspects
 you wish to include as aesthetics in your plot.
 
-This is illustrated with data from [Piet _et al._ (submitted)](https:://doi.org/10.2139/ssrn.4450241),
+This is illustrated with data from [Piet _et al._ (submitted)](https://doi.org/10.2139/ssrn.4450241),
 this data set describes risks
 to provide ecosystem services via cause-effect chains (note that the package contains a
 simplified, highly aggregated, version of the data). Where the services are affected by
