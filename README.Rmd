@@ -73,8 +73,8 @@ followed by alternatives.
       they are very similar. Differences ly in the type of data (population of facts across
       categorical dimensions (alluvial) versus quantities in different states (Sankey)).
       Also, alluvial diagrams are always structured in stages (where the order does not matter),
-      whereas Sankey diagrams are not necessarily structured, but the order does matter. See also
-      http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams
+      whereas Sankey diagrams are not necessarily structured, but the order does matter.
+      <!-- See also  http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams -->
     * *Bump diagram*. This is actually a special case of alluvial diagrams, where each node flows
       only to a single next node. Usually, the stacking order of nodes in each stage is determined
       by the size of the nodes

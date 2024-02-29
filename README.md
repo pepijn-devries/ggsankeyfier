@@ -67,8 +67,8 @@ package, followed by alternatives.
     quantities in different states (Sankey)). Also, alluvial diagrams
     are always structured in stages (where the order does not matter),
     whereas Sankey diagrams are not necessarily structured, but the
-    order does matter. See also
-    <http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams>
+    order does matter.
+    <!-- See also  http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams -->
   - *Bump diagram*. This is actually a special case of alluvial
     diagrams, where each node flows only to a single next node. Usually,
     the stacking order of nodes in each stage is determined by the size
@@ -151,6 +151,13 @@ appearance. You may want to:
 
 Check `vignette("decorating")` to discover how this is done.
 
+## Code of Conduct
+
+Please note that the `ggsankeyfier` project is released with a
+[Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ## Acknowledgements
 
 This package was development as part of the EU GES4SEAS project (EU call
@@ -163,6 +170,6 @@ from the Dutch Ministry of Agriculture, Nature and Food Quality
 ## Resources
 
 - Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P
-  (in prep.) A Cumulative Impact Assessment on the North Sea Capacity to
-  Supply Ecosystem Services
+  (*in prep.*) A Cumulative Impact Assessment on the North Sea Capacity
+  to Supply Ecosystem Services
   [DOI:10.2139/ssrn.4450241](https://dx.doi.org/10.2139/ssrn.4450241)
