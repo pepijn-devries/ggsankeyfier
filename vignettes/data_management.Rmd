@@ -1,0 +1,100 @@
+---
+title: "Sankey data management"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Sankey data management}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo = FALSE}
+library(ggsankeyfier)
+```
+
+## Introduction
+
+The `ggsankeyfier` package needs data in a `data.frame` in order to plot it. This `data.frame` does
+not necessarily has the same format as the data while you are processing it. In most cases data is
+probably organised in a wide format with stages of the Sankey diagram in columns of the `data.frame`.
+For plotting this needs to be converted into a long format. Why and how to do this, is
+discussed below.
+
+## Wide or long format?
+
+A wide format would be typically used when working with
+the data. This can be best understood when the framework you wish to visualise represents a
+collection of cause-effect chains. In those cases each stage would represent a link in the chain.
+So in a wide format each stage (or link in the cause-effect chain) would be represented by a column
+in a `data.frame`. Also, in the wide format, each row would represent a unique cause-effect chain.
+The wide format is therefore suitable for describing such chains.
+
+So why do we need the long format? This is because in a Sankey diagram, we want to visualise
+how information flows between stages. Moreover, we might even want to distinguish
+between the start and the end of such a flow. So, rather than the entire 'chain', the data format
+revolves around the flow ends. This requires a long format where each row contains information on
+a flow end.
+
+Now, when do we work with either the wide or the long format? When working with information
+on chains, it makes sense to work with a wide format. When plotting with `ggsankeyfier` or
+modification of flow information is required, a long format is more suitable.
+
+### Converting from wide to long
+
+This package comes with a function that allow you to pivot information with stages organised as
+columns (i.e., wide format) to a long format. All you need to do is specify which columns represent
+the stages, which numeric column quantifies the size of each flow and if there are specific aspects
+you wish to include as aesthetics in your plot.
+
+This is illustrated with data from [Piet _et al._ (submitted)](https:://doi.org/10.2139/ssrn.4450241),
+this data set describes risks
+to provide ecosystem services via cause-effect chains (note that the package contains a
+simplified, highly aggregated, version of the data). Where the services are affected by
+activities that exert pressures onto the ecosystem components that supply those services.
+Risk is expressed as a numeric indicator (RCSES).
+Stages are formed by the columns named `"activity_type"`, `"pressure_cat"`, `"biotic_group"` and
+`"service_division"`. This is pivoted from its wide format to the long format required for plotting
+as follows:
+
+```{r pivot, echo=TRUE}
+## first get a data set with a wide format:
+data(ecosystem_services)
+
+## pivot to long format for plotting:
+es_long <-
+  pivot_stages_longer(
+    ## the data.frame we wish to pivot:
+    data        = ecosystem_services,
+    ## the columns that represent the stages:
+    stages_from = c("activity_type", "pressure_cat",
+                    "biotic_realm", "service_division"),
+    ## the column that represents the size of the flows:
+    values_from = "RCSES"
+  )
+```
+
+## The edge id and connector
+
+After pivoting to the long format as illustrated above you will note two additional columns
+that contain information that was not available in the wide format. Namely the columns `edge_id`
+and `connector`.
+
+```{r pivot_names, echo=TRUE, include=TRUE}
+names(es_long)
+```
+
+These columns are added as the `ggsankeyfier` functions need them for plotting the data in a
+Sankey diagram. More specifically, these columns are required to distinguish between the head
+and tail of a flow. This allows to apply different aesthetics to both ends of a flow (not yet fully
+implemented) and to visualise feedback loops (see `vignette("loopdeloop")`),
+which would otherwise not be possible. The
+column `connector` should contain either `"from"` (start of a flow) or `"to"` (end of a flow).
+The `edge_id` contains a unique identifier for each edge (flow), this determines which `"from"`
+should be connected to which `"to"` connector. When applying the `pivot_stages_longer` function,
+the `"from"` end `"to"` connector for each edge will have an identical value.

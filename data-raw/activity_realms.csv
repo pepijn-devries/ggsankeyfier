@@ -1,0 +1,14 @@
+activity_type,activity_realm_a,activity_realm_b
+Agriculture & Forestry,Food production,Land-based
+Aquaculture,Food production,Food production
+Environmental Management,Management & support,Services
+Fishing,Food production,Food production
+Manufacturing (land-based) - operations,"Energy, mining & materials",Land-based
+"Mining, extraction of materials","Energy, mining & materials",Energy & materials
+Non-Renewable Energy,"Energy, mining & materials",Energy & materials
+Renewable Energy,"Energy, mining & materials",Energy & materials
+Research,Management & support,Services
+Residential & Commercial Development,Other,Land-based
+Services,Management & support,Services
+Tourism/ Recreation and Non-Commercial Harvesting,Other,Tourism
+Waste Management,Management & support,Land-based

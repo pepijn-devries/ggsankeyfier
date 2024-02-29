@@ -1,0 +1,70 @@
+Package: ggsankeyfier
+Type: Package
+Title: Create Sankey and Alluvial Diagrams Using 'ggplot2'
+Version: 0.1.2
+Date: 2024-02-29
+Authors@R: c(person("Pepijn", "de Vries", role = c("aut", "cre", "dtc"),
+    email = "pepijn.devries@outlook.com",
+    comment = c(ORCID = "0000-0002-7961-6646")),
+    person("Gerjan", "Piet", role = c("dtc"),
+    comment = c(ORCID = "0000-0003-0702-1624")),
+    person("Ruud", "Jongbloed", role = c("dtc"),
+    comment = c(ORCID = "0000-0002-9378-5382")),
+    person("Anne", "Grundlehner", role = c("dtc"),
+    comment = c(ORCID = "0000-0003-3375-3511")),
+    person("Jacqueline", "Tamis", role = c("dtc"),
+    comment = c(ORCID = "0000-0002-8206-5830")))
+Author:
+    Pepijn de Vries [aut, cre, dtc] (0000-0002-7961-6646),
+    Gerjan Piet [dtc] (0000-0003-0702-1624),
+    Ruud Jongbloed [dtc] (0000-0002-9378-5382),
+    Anne Grundlehner [dtc] (0000-0003-3375-3511),
+    Jacqueline Tamis [dtc] (0000-0002-8206-5830)
+Maintainer: Pepijn de Vries <pepijn.devries@outlook.com>
+Description: Sankey and alluvial diagrams visualise flows of quantities across
+    stages in stacked bars. This package makes it easy to create such
+    diagrams using 'ggplot2'.
+Depends:
+    R (>= 3.5.0)
+Imports:
+    dplyr,
+    ggplot2,
+    grid,
+    gridBezier,
+    methods,
+    rlang,
+    scales,
+    stats,
+    tidyr,
+    vwline
+Suggests:
+    knitr,
+    rmarkdown,
+    stringr,
+    svglite,
+    testthat (>= 3.0.0),
+    vdiffr
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
+Collate: 
+    'draw_edges.r'
+    'draw_key.r'
+    'ecosystem_services.r'
+    'geom_segment.r'
+    'scale_waist.r'
+    'geom_edge.r'
+    'position_helpers.r'
+    'geom_node.r'
+    'ggsankeyfier-package.r'
+    'imports.r'
+    'pivot_stages.r'
+    'position.r'
+    'short_cuts.r'
+    'stat_edge.r'
+    'stat_node_helpers.r'
+    'stat_node.r'
+VignetteBuilder: knitr
+Config/testthat/edition: 3
