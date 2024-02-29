@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,8 +131,8 @@ demonstrated in the present vignette.</p>
 <p>In order to demonstrate a feedback loop we <code>rbind</code> a
 fictional edge to the demonstration data. Note that this feedback loop
 does not make any sense in the context of the data. It only serves as
-proof of principle. With the operator we update the plot with the data
-that includes the feedback loop.</p>
+proof of principle. With the <code>%+%</code> operator we update the
+plot with the data that includes the feedback loop.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">es_subset_feedback</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">es_subset</span> <span class="op">|&gt;</span></span>
@@ -154,8 +154,8 @@ that includes the feedback loop.</p>
 </h2>
 <p>Edges don’t even have to flow from one stage to another regardless of
 its direction. Instead, it is also possible to let an edge flow from and
-to the same stage. In fact, you can even let anedge flow from and to the
-same node. This is illustrated in the example below, we we
+to the same stage. In fact, you can even let an edge flow from and to
+the same node. This is illustrated in the example below, we we
 <code>rbind</code> a fictional self-referencing node. Again, in the
 context of the data, this self-reference does not make sense, but it
 serves as proof of principle.</p>
