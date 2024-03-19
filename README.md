@@ -60,33 +60,39 @@ thesaurus is presented to provide an overview and hopefully avoid
 confusion. The list starts with the term preferred in the present
 package, followed by alternatives.
 
-- Sankey diagram
+- Sankey diagram:
   - *Alluvial diagram*. Although arguably not the same as a Sankey
     diagram, they are very similar. Differences ly in the type of data
     (population of facts across categorical dimensions (alluvial) versus
-    quantities in different states (Sankey)). Also, alluvial diagrams
-    are always structured in stages (where the order does not matter),
+    quantities in different states (Sankey)) Also, alluvial diagrams are
+    always structured in stages (where the order does not matter),
     whereas Sankey diagrams are not necessarily structured, but the
-    order does matter.
-    <!-- See also  http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams -->
+    order does matter
+    <!-- See also  http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams and
+      https://datavizcatalogue.com/blog/sankey-diagrams-parallel-sets-alluvial-diagrams-whats-the-difference/ -->
   - *Bump diagram*. This is actually a special case of alluvial
     diagrams, where each node flows only to a single next node. Usually,
     the stacking order of nodes in each stage is determined by the size
     of the nodes
-- Node
+- Node:
   - *Vertices*. Another commonly used term in the [graph
     theory](https://en.wikipedia.org/wiki/Graph_theory)
+  - *Stratum*. A term coined for alluvial diagrams
 - Edge:
-  - *Flow*. An acceptable alternative.
+  - *Flow*. Sometimes also refers to the interaction between stages. In
+    the present package it is used only as a synonym for ‘edge’.
+  - *Alluvium*. A term used in alluvial diagrams
   - *Line*. Another commonly used albeit generic term in the [graph
-    theory](https://en.wikipedia.org/wiki/Graph_theory).
+    theory](https://en.wikipedia.org/wiki/Graph_theory)
   - *Link*. Although commonly used in the [graph
     theory](https://en.wikipedia.org/wiki/Graph_theory), we avoid its
     use in this context as it may get confused with a link in a
-    cause-effect chain, which is better reflected by the stages.
+    cause-effect chain, which is better reflected by the stages
+- Connector:
+  - *Lode*. A term used in alluvial diagrams
 - Stage:
   - *Link*. Not used in the present package to avoid confusion with
-    edges (see above).
+    edges (see above)
 
 ## Usage
 
@@ -169,7 +175,7 @@ from the Dutch Ministry of Agriculture, Nature and Food Quality
 
 ## Resources
 
-- Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P
+- Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries P
   (*in prep.*) A Cumulative Impact Assessment on the North Sea Capacity
   to Supply Ecosystem Services
-  [DOI:10.2139/ssrn.4450241](https://dx.doi.org/10.2139/ssrn.4450241)
+  [DOI:10.2139/ssrn.4760674](http://dx.doi.org/10.2139/ssrn.4760674)

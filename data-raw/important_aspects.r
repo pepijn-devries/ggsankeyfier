@@ -1,5 +1,6 @@
 library(ggsankeyfier)
 library(ggplot2)
+library(dplyr)
 
 pos <- ggsankeyfier::position_sankey(
   v_space = "auto", order = "descending", align = "justify")
@@ -22,7 +23,7 @@ data_edge <-
 
 data_edge_sel <-
   data_edge |>
-  filter(label == "Fish & Cephalopds") |>
+  filter(label == "Benthos") |>
   filter(y == min(y)) |>
   mutate(x_center = (x + xend)/2,
          y_center = (y + yend)/2,
@@ -34,7 +35,7 @@ data_node <-
 
 data_node_sel <-
   data_node |>
-  filter(label == "Provisioning") |>
+  filter(label == "Cultural") |>
   filter(y == min(y)) |>
   mutate(label2 = "n")
 
@@ -111,8 +112,8 @@ p2 <-
             col = "red", arrow = arrow(type = "closed", ends = "both",
                                        length = unit(0.02, "npc"))) +
   geom_text(aes(x = x, y = y, label = label),
-    data = tibble(x = arrows$x[[1]], y = mean(arrows$y),
-                  label = "Edge size\n(aes: y)"),
+            data = tibble(x = arrows$x[[1]], y = mean(arrows$y),
+                          label = "Edge size\n(aes: y)"),
             nudge_x = 0.05, size = 3, hjust = 0, inherit.aes = FALSE) +
   geom_segment(aes(x = x + c(0.02, -0.02),
                    y = y, xend = x + c(0.1, -0.1), yend = y + 0.1),
