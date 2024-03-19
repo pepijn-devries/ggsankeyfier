@@ -37,7 +37,7 @@
     
     <a class="navbar-brand me-2" href="index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.7.001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,36 +121,48 @@ Important aspects
 </h3>
 <p>As there are no standards in Sankey diagrams, there may be different words representing the same or similar aspects. Therefore the following thesaurus is presented to provide an overview and hopefully avoid confusion. The list starts with the term preferred in the present package, followed by alternatives.</p>
 <ul>
-<li>Sankey diagram
+<li>Sankey diagram:
 <ul>
 <li>
-<em>Alluvial diagram</em>. Although arguably not the same as a Sankey diagram, they are very similar. Differences ly in the type of data (population of facts across categorical dimensions (alluvial) versus quantities in different states (Sankey)). Also, alluvial diagrams are always structured in stages (where the order does not matter), whereas Sankey diagrams are not necessarily structured, but the order does matter. <!-- See also  http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams -->
+<em>Alluvial diagram</em>. Although arguably not the same as a Sankey diagram, they are very similar. Differences ly in the type of data (population of facts across categorical dimensions (alluvial) versus quantities in different states (Sankey)) Also, alluvial diagrams are always structured in stages (where the order does not matter), whereas Sankey diagrams are not necessarily structured, but the order does matter <!-- See also  http://www.datasmith.org/2020/05/02/alluvial-plots-vs-sankey-diagrams and
+    https://datavizcatalogue.com/blog/sankey-diagrams-parallel-sets-alluvial-diagrams-whats-the-difference/ -->
 </li>
 <li>
 <em>Bump diagram</em>. This is actually a special case of alluvial diagrams, where each node flows only to a single next node. Usually, the stacking order of nodes in each stage is determined by the size of the nodes</li>
 </ul>
 </li>
-<li>Node
+<li>Node:
 <ul>
 <li>
 <em>Vertices</em>. Another commonly used term in the <a href="https://en.wikipedia.org/wiki/Graph_theory" class="external-link">graph theory</a>
 </li>
+<li>
+<em>Stratum</em>. A term coined for alluvial diagrams</li>
 </ul>
 </li>
 <li>Edge:
 <ul>
 <li>
-<em>Flow</em>. An acceptable alternative.</li>
+<em>Flow</em>. Sometimes also refers to the interaction between stages. In the present package it is used only as a synonym for ‘edge’.</li>
 <li>
-<em>Line</em>. Another commonly used albeit generic term in the <a href="https://en.wikipedia.org/wiki/Graph_theory" class="external-link">graph theory</a>.</li>
+<em>Alluvium</em>. A term used in alluvial diagrams</li>
 <li>
-<em>Link</em>. Although commonly used in the <a href="https://en.wikipedia.org/wiki/Graph_theory" class="external-link">graph theory</a>, we avoid its use in this context as it may get confused with a link in a cause-effect chain, which is better reflected by the stages.</li>
+<em>Line</em>. Another commonly used albeit generic term in the <a href="https://en.wikipedia.org/wiki/Graph_theory" class="external-link">graph theory</a>
+</li>
+<li>
+<em>Link</em>. Although commonly used in the <a href="https://en.wikipedia.org/wiki/Graph_theory" class="external-link">graph theory</a>, we avoid its use in this context as it may get confused with a link in a cause-effect chain, which is better reflected by the stages</li>
+</ul>
+</li>
+<li>Connector:
+<ul>
+<li>
+<em>Lode</em>. A term used in alluvial diagrams</li>
 </ul>
 </li>
 <li>Stage:
 <ul>
 <li>
-<em>Link</em>. Not used in the present package to avoid confusion with edges (see above).</li>
+<em>Link</em>. Not used in the present package to avoid confusion with edges (see above)</li>
 </ul>
 </li>
 </ul>
@@ -215,7 +227,7 @@ Important aspects
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
 </h2>
 <ul>
-<li>Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P (<em>in prep.</em>) A Cumulative Impact Assessment on the North Sea Capacity to Supply Ecosystem Services <a href="https://dx.doi.org/10.2139/ssrn.4450241" class="external-link">DOI:10.2139/ssrn.4450241</a>
+<li>Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries P (<em>in prep.</em>) A Cumulative Impact Assessment on the North Sea Capacity to Supply Ecosystem Services <a href="http://dx.doi.org/10.2139/ssrn.4760674" class="external-link">DOI:10.2139/ssrn.4760674</a>
 </li>
 </ul>
 </div>
@@ -223,6 +235,7 @@ Important aspects
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=ggsankeyfier" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/pepijn-devries/ggsankeyfier/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/pepijn-devries/ggsankeyfier/issues" class="external-link">Report a bug</a></li>
 </ul>
