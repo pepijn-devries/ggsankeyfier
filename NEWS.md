@@ -1,7 +1,7 @@
-ggsankeyfier v0.1.7.001
+ggsankeyfier v0.1.7.002
 -------------
 
- * Update in README
+ * Update in README and manual
 
 ggsankeyfier v0.1.7 (Release date: 2024-02-29)
 -------------

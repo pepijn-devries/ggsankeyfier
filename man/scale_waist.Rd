@@ -58,17 +58,21 @@ the edge will be shaped like an hour glass, at the other end it will be shaped a
 apple.
 }
 \examples{
-data("ecosystem_services")
+if (requireNamespace("ggplot2")) {
+  library(ggplot2)
+  data("ecosystem_services")
 
-p <-
-  ggplot(ecosystem_services_pivot1, aes(x = stage, y = RCSES, group = node,
-                                        connector = connector, edge_id = edge_id,
-                                        waist = RCSES)) +
-  geom_sankeyedge(v_space = "auto", ncp = 10) +
-  geom_sankeynode(v_space = "auto")
+  p <-
+    ggplot(ecosystem_services_pivot1, aes(x = stage, y = RCSES, group = node,
+                                          connector = connector,
+                                          edge_id = edge_id,
+                                          waist = RCSES)) +
+   geom_sankeyedge(v_space = "auto", ncp = 10) +
+    geom_sankeynode(v_space = "auto")
 
-p + scale_waist_binned(range = c(0.1, 2))
-p + scale_waist_binned(range = c(2, 0.1))
+  p + scale_waist_binned(range = c(0.1, 2))
+  p + scale_waist_binned(range = c(2, 0.1))
+}
 }
 \author{
 Pepijn de Vries
