@@ -14,4 +14,5 @@
 ^cran-comments\.md$
 ^.*\.md$
 ^.*\.bib$
+^.*\.pdf$
 ^paper_files$
