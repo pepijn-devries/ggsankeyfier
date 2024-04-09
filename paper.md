@@ -24,12 +24,12 @@ authors:
     surname: Tamis
     orcid: "0000-0002-8206-5830"
     affiliation: 1
-  - given-names: Jongbloed
-    surname: Ruud H.
+  - given-names: Ruud H.
+    surname: Jongbloed
     orcid: "0000-0002-9378-5382"
     affiliation: 1
-  - given-names: Grundlehner
-    surname: Anne
+  - given-names: Anne
+    surname: Grundlehner
     orcid: "0000-0003-3375-3511"
     affiliation: 1
 bibliography: paper.bib
