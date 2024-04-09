@@ -1,40 +1,41 @@
 ---
 title: 'ggsankeyfier: An R package to visualise flows of quantities through stages'
 tags:
-- R
-- data visualisation
-- Sankey
-- Alluvial
-date: 2024-03-01
+  - R
+  - data visualisation
+  - Sankey
+  - Alluvial
+date: 1 March 2024
 output:
   pdf_document:
     keep_md: yes
 authors:
-- given-names: Pepijn
-  non-dropping-particle: de
-  surname: Vries
-  orcid: "0000-0002-7961-6646"
-  equal-contrib: true
-  affiliation: 1
-- given-names: Gerjan
-  surname: Piet
-  orcid: "0000-0003-0702-1624"
-  affiliation: 1
-- given-names: Jacqueline
-  surname: Tamis
-  orcid: "0000-0002-8206-5830"
-  affiliation: 1
-- given-names: Jongbloed
-  surname: Ruud H.
-  orcid: "0000-0002-9378-5382"
-  affiliation: 1
-- given-names: Grundlehner
-  surname: Anne
-  orcid: "0000-0003-3375-3511"
-  affiliation: 1
+  - given-names: Pepijn
+    non-dropping-particle: de
+    surname: Vries
+    orcid: "0000-0002-7961-6646"
+    equal-contrib: true
+    affiliation: 1
+  - given-names: Gerjan
+    surname: Piet
+    orcid: "0000-0003-0702-1624"
+    affiliation: 1
+  - given-names: Jacqueline
+    surname: Tamis
+    orcid: "0000-0002-8206-5830"
+    affiliation: 1
+  - given-names: Jongbloed
+    surname: Ruud H.
+    orcid: "0000-0002-9378-5382"
+    affiliation: 1
+  - given-names: Grundlehner
+    surname: Anne
+    orcid: "0000-0003-3375-3511"
+    affiliation: 1
 bibliography: paper.bib
 affiliations:
-- name: Wageningen University and Research, Wageningen Marine Research, P.O. Box 57, 1780 AB Den Helder, The Netherlands
+  - name: Wageningen University and Research, Wageningen Marine Research, P.O. Box 57, 1780 AB Den Helder, The Netherlands
+    index: 1
 ---
 
 # Summary
