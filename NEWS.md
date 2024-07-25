@@ -1,14 +1,15 @@
-ggsankeyfier v0.1.8.0001
+ggsankeyfier v0.1.8.0002
 -------------
 
- * TODO
+ * Added check workflow
+ * Added code coverage workflow
 
-ggsankeyfier v0.1.8 (Release date: 2024-04-08)
+ggsankeyfier v0.1.8
 -------------
 
  * Update in README and manual
 
-ggsankeyfier v0.1.7 (Release date: 2024-02-29)
+ggsankeyfier v0.1.7
 -------------
 
   * Initial release
