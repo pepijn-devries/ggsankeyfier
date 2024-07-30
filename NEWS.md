@@ -2,7 +2,8 @@ ggsankeyfier v0.1.8.0003
 -------------
 
  * Added check workflow
- * Added code coverage workflow
+ * Added code coverage workflow and badge
+ * Improved test coverage
 
 ggsankeyfier v0.1.8
 -------------

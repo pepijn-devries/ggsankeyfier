@@ -5,13 +5,14 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/pepijn-devries/ggsankeyfier/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/csquares/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/pepijn-devries/ggsankeyfier/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/ggsankeyfier/actions/workflows/R-CMD-check.yaml)
 ![cranlogs](https://cranlogs.r-pkg.org/badges/ggsankeyfier)
 [![version](https://www.r-pkg.org/badges/version/ggsankeyfier)](https://CRAN.R-project.org/package=ggsankeyfier)
 [![cran
 checks](https://badges.cranchecks.info/worst/ggsankeyfier.svg)](https://cran.r-project.org/web/checks/check_results_ggsankeyfier.html)
-[![csquares status
+[![ggsankeyfier status
 badge](https://pepijn-devries.r-universe.dev/badges/ggsankeyfier)](https://pepijn-devries.r-universe.dev/ggsankeyfier)
+[![codecov](https://codecov.io/gh/pepijn-devries/ggsankeyfier/graph/badge.svg?token=2AK9YA9UXR)](https://codecov.io/gh/pepijn-devries/ggsankeyfier)
 <!-- badges: end -->
 
 <img src="man/figures/logo.png" align="right" alt = "logo" />
