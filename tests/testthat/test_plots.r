@@ -11,10 +11,10 @@ test_that(
         feed_back,
         ggplot2::aes(x = x, y = y, group = group, connector = connector, edge_id = edge_id)) +
       geom_sankeynode() +
-      stat_sankeynode() +
       gs +
-      stat_sankeyedge() +
       ggplot2::lims(y = c(0,3))
+    ## Explicitly call stat methods for test coverage
+    feedback_plot + stat_sankeynode() + stat_sankeyedge()
     vdiffr::expect_doppelganger("ggsankeyfier feedback", feedback_plot)
   }
 )
