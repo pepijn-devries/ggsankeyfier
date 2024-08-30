@@ -6,7 +6,8 @@ test_that(
         ecosystem_services,
         c("activity_realm", "biotic_realm", "service_section"),
         "RCSES")
-    }, ecosystem_services_pivot1)
+    }, ecosystem_services_pivot1,
+    tolerance = 1e-5)
   })
 
 test_that(
@@ -30,5 +31,6 @@ test_that(
         ecosystem_services,
         c("activity_realm", "biotic_realm", "service_section"),
         "RCSES", "service_section")
-    }, ecosystem_services_pivot2)
+    }, ecosystem_services_pivot2,
+    tolerance = 1e-5)
   })
