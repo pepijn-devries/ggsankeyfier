@@ -27,4 +27,4 @@ p <-
   labs(fill = "risk\nlevel", y = "risk level")
 
 ggsave("gallery/pepijn-devries-ggsankeyfier.png", print(p), width = 350, height = 300, units = "px",
-       scale = 5)
+       dpi = 60)
