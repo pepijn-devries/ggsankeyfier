@@ -1,9 +1,10 @@
-ggsankeyfier v0.1.8.0006
+ggsankeyfier v0.1.8.0007
 -------------
 
  * Added check workflow
  * Added code coverage workflow and badge
  * Improved test coverage
+ * Fix for [issue #23](https://github.com/pepijn-devries/ggsankeyfier/issues/23)
 
 ggsankeyfier v0.1.8
 -------------

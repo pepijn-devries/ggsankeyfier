@@ -6,8 +6,10 @@
       tidyr::pivot_longer(dplyr::any_of(c("node_id", "node_id_end")),
                           names_to = "which", values_to = "node_id") |>
       dplyr::mutate(x_fix = ifelse(.data$which == "node_id", .data[["x"]], .data[["xend"]])) |>
-      .group_across("PANEL", "x_fix", "node_id", "which") |>
+      .group_across("PANEL", "connector", "x_fix", "node_id", "which") |>
       dplyr::summarise(node_size = sum(.data[["y"]])) |>
+      .group_across("PANEL", "x_fix", "node_id", "which") |>
+      dplyr::summarise(node_size = max(.data$node_size)) |>
       .group_across("PANEL", "node_id") |>
       dplyr::mutate(is_max = max(.data[["node_size"]]) == .data[["node_size"]]) |>
       dplyr::select(-"which") |>
@@ -244,7 +246,6 @@
 
     data |>
       dplyr::rename_with(~gsub("_to$", "_end", .), dplyr::ends_with("_to")) |>
-      # dplyr::rename(group_end = "group_to") |>
       dplyr::mutate(connector_end = "to") |>
       dplyr::left_join(nodes, by = c("PANEL", "connector", "edge_id")) |>
       dplyr::left_join(
