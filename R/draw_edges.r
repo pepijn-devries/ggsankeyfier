@@ -4,7 +4,7 @@
   data <- data |>
     dplyr::mutate(
       res = {
-        resolution <- .data[["xend"]] - .data[["x"]]
+        resolution <- .data$xend - .data$x
         resolution[resolution < 0 & resolution > -1] <- -1
         resolution[is.na(resolution)] <- 0
         resolution[abs(resolution) < 0.25] <-
@@ -22,7 +22,7 @@
   # Note that edge_end_size is currently ignored.
   data$edge_size <-
     coord$transform(
-      dplyr::bind_cols(x = 0, y = data[["edge_size"]]), panel_params)[["y"]] -
+      dplyr::bind_cols(x = 0, y = data$edge_size), panel_params)[["y"]] -
     coord$transform(
       dplyr::bind_cols(x = 0, y = rep(0, nrow(data))), panel_params)[["y"]]
   # For very narrow edges take a small value, to avoid errors (it will not be visible to
@@ -98,14 +98,14 @@
               )
             }
           },
-          x = .data[["x"]], y = .data[["y"]], xend = .data[["xend"]],
-          yend = .data[["yend"]], y_size = .data[["edge_size"]], slope = .data[["slope"]],
-          ncp = .data[["ncp"]],
-          fill = .data[["fill"]], colour = .data[["colour"]], linetype = .data[["linetype"]],
-          linewidth = .data[["linewidth"]],
-          alpha = .data[["alpha"]], waist = .data[["waist"]], res = .data[["res"]],
-          connector = .data[["connector"]],
-          SIMPLIFY = F)
+          x = .data$x, y = .data$y, xend = .data$xend,
+          yend = .data$yend, y_size = .data$edge_size, slope = .data$slope,
+          ncp = .data$ncp,
+          fill = .data$fill, colour = .data$colour, linetype = .data$linetype,
+          linewidth = .data$linewidth,
+          alpha = .data$alpha, waist = .data$waist, res = .data$res,
+          connector = .data$connector,
+          SIMPLIFY = FALSE)
     ) |> dplyr::pull("bez")
 
   return(do.call(grid::gList, result))

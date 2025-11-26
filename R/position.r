@@ -17,7 +17,8 @@
 #' nodes and edges in a plot.
 #' Should be one of: `ascending` (default), sorts nodes and edges from large to small
 #' (largest on top); `descending` sorts nodes and edges from small to large (smallest
-#' on top); `as_is` will leave the order of nodes and edges as they are in `data`.
+#' on top); `ascending+` TODO; `descending+` TODO;
+#' `as_is` will leave the order of nodes and edges as they are in `data`.
 #' @param h_space Horizontal space between split nodes (`numeric`). This argument is
 #' ignored when `split_nodes == FALSE`. Use `"auto"` to automatically position split nodes.
 #' @param v_space Vertical space between nodes (`numeric`). When set to zero (`0`),
@@ -88,7 +89,7 @@ PositionSankey <-
 #' @export
 position_sankey <-
   function(width = "auto", align = c("bottom", "top", "center", "justify"),
-           order = c("ascending", "descending", "as_is"),
+           order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
            h_space = "auto", v_space = 0,
            nudge_x = 0, nudge_y = 0,
            split_nodes = FALSE, split_tol = 1e-3, direction = c("forward", "backward"), ...) {

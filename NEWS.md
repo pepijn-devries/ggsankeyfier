@@ -1,4 +1,4 @@
-ggsankeyfier v0.1.8.0008
+ggsankeyfier v0.1.8.0009
 -------------
 
  * Added check workflow
