@@ -1,23 +1,26 @@
 .node_summary <- function(self, data) {
-
   if (!"node_id" %in% names(data) || all(!c("node_size", "y_node_size") %in% names(data))) {
+
+    if ("node_id_end" %in% colnames(data)) {
+      data <-
+        dplyr::bind_rows(
+          data |>
+            dplyr::select(c("PANEL", "node_id", "x", "y")) |>
+            dplyr::mutate(connector = "from"),
+          data |>
+            dplyr::select(c("PANEL", node_id = "node_id_end", x = "xend", y = "yend")) |>
+            dplyr::mutate(connector = "to")
+        )
+    }
     data |>
-      .add_node_id() |>
-      tidyr::pivot_longer(dplyr::any_of(c("node_id", "node_id_end")),
-                          names_to = "which", values_to = "node_id") |>
-      dplyr::mutate(x_fix = ifelse(.data$which == "node_id", .data[["x"]], .data[["xend"]])) |>
-      .group_across("PANEL", "connector", "x_fix", "node_id", "which") |>
-      dplyr::summarise(node_size = sum(.data[["y"]])) |>
-      .group_across("PANEL", "x_fix", "node_id", "which") |>
+      .group_across("PANEL", "x", "node_id", "connector") |>
+      dplyr::summarise(node_size = sum(.data$y)) |>
+      .group_across("PANEL", "x", "node_id") |>
       dplyr::summarise(node_size = max(.data$node_size)) |>
-      .group_across("PANEL", "node_id") |>
-      dplyr::mutate(is_max = max(.data[["node_size"]]) == .data[["node_size"]]) |>
-      dplyr::select(-"which") |>
-      dplyr::filter(.data[["is_max"]]) |>
-      dplyr::distinct() |>
-      dplyr::rename(x = "x_fix") |>
       .group_across("PANEL", "x") |>
-      dplyr::summarise(n_nodes = dplyr::n(), max_size = sum(.data[["node_size"]]))
+      dplyr::summarise(max_size = sum(.data$node_size),
+                       n_nodes = dplyr::n())
+
   } else if (!"node_size" %in% names(data)) {
     dplyr::bind_rows(
       data |> dplyr::select(c("PANEL", "x", "node_id",
