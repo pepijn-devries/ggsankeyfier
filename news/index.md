@@ -1,6 +1,6 @@
 # Changelog
 
-## ggsankeyfier v0.1.8.0007
+## ggsankeyfier v0.1.8.0008
 
 - Added check workflow
 - Added code coverage workflow and badge
