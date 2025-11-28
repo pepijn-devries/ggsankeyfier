@@ -154,8 +154,9 @@
     if (missing(params)) params <- .setup_params_position(self, data)
     data <- data |> .add_node_id()
 
-    if (typeof(params$order) == "character")
-      order_fun <- \(x) .order_objects(x, params$order)
+    if (is.character(params$order))
+      order_fun <- \(x) .order_objects(x, params$order) else
+        if (is.function(params$order)) order_fun <- params$order
 
     rhs <- .group_across(data, "PANEL", "x", "group") |>
       dplyr::summarise(y = max(.data$y), .groups = "keep") |>
@@ -244,8 +245,9 @@
   function(self, data, params, scales) {
     params <- .setup_params_position(self, data)
 
-    if (typeof(params$order) == "character")
-      order_fun <- \(x) .order_objects(x, params$order)
+    if (is.character(params$order))
+      order_fun <- \(x) .order_objects(x, params$order) else
+        if (is.function(params$order)) order_fun <- params$order
 
     nodes <- dplyr::bind_rows(
       data |>

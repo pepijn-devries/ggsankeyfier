@@ -68,7 +68,7 @@ a Sankey diagram.
 \description{
 Data indicating a risk resulting from anthropological activities to the
 marine ecosystem and its capacity to supply services.
-This data set serves (aggregated from Piet \emph{et al.} (submitted)) as an example
+This data set serves (aggregated from Piet \emph{et al.} (2024)) as an example
 to illustrate the package's features.
 }
 \examples{
@@ -96,9 +96,10 @@ if (requireNamespace("stringr")) {
 }
 }
 \references{
-Piet GJ, Bentley J, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P
-(submitted) A Cumulative Impact Assessment on the North Sea Capacity to
-Supply Ecosystem Services. \doi{10.2139/ssrn.4450241}
+Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P (2024)
+A Cumulative Impact Assessment on the North Sea Capacity to Supply Ecosystem
+Services. Science of The Total Environment (498)
+\href{https://doi.org/10.1016/j.scitotenv.2024.174149}{DOI:10.1016/j.scitotenv.2024.174149}
 }
 \author{
 Pepijn de Vries, Gerjan Piet, Jacob Bentley, Ruud Jongbloed, Anne Grundlehner, Jacqueline Tamis

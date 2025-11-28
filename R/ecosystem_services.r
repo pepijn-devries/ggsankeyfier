@@ -2,7 +2,7 @@
 #'
 #' Data indicating a risk resulting from anthropological activities to the
 #' marine ecosystem and its capacity to supply services.
-#' This data set serves (aggregated from Piet _et al._ (submitted)) as an example
+#' This data set serves (aggregated from Piet _et al._ (2024)) as an example
 #' to illustrate the package's features.
 #' @format `ecosystem_services` is  a `data.frame` with
 #' `r nrow(ecosystem_services)` rows and `r ncol(ecosystem_services)` columns.
@@ -36,9 +36,10 @@
 #' for additional decoration of a Sankey diagram. It is therefore more detailed than
 #' the first alternative.
 #' @references
-#' Piet GJ, Bentley J, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P
-#' (submitted) A Cumulative Impact Assessment on the North Sea Capacity to
-#' Supply Ecosystem Services. \doi{10.2139/ssrn.4450241}
+#' Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P (2024)
+#' A Cumulative Impact Assessment on the North Sea Capacity to Supply Ecosystem
+#' Services. Science of The Total Environment (498)
+#' [DOI:10.1016/j.scitotenv.2024.174149](https://doi.org/10.1016/j.scitotenv.2024.174149)
 #' @docType data
 #' @author Pepijn de Vries, Gerjan Piet, Jacob Bentley, Ruud Jongbloed, Anne Grundlehner, Jacqueline Tamis
 #' @examples
