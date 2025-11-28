@@ -9,7 +9,7 @@ Sankey diagram."><meta property="og:image" content="https://pepijn-devries.githu
 
     <a class="navbar-brand me-2" href="../index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0008</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0010</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,7 @@ Sankey diagram."><meta property="og:image" content="https://pepijn-devries.githu
     <li><a class="dropdown-item" href="../articles/decorating.html">Decorating Sankey diagrams</a></li>
     <li><a class="dropdown-item" href="../articles/loopdeloop.html">Loop De Loop</a></li>
     <li><a class="dropdown-item" href="../articles/positioning.html">Positioning Sankey elements</a></li>
+    <li><a class="dropdown-item" href="../articles/stacking_order.html">Stacking Order</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -53,7 +54,7 @@ Sankey diagram.</p>
 <span><span class="fu">position_sankey</span><span class="op">(</span></span>
 <span>  width <span class="op">=</span> <span class="st">"auto"</span>,</span>
 <span>  align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bottom"</span>, <span class="st">"top"</span>, <span class="st">"center"</span>, <span class="st">"justify"</span><span class="op">)</span>,</span>
-<span>  order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ascending"</span>, <span class="st">"descending"</span>, <span class="st">"as_is"</span><span class="op">)</span>,</span>
+<span>  order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ascending"</span>, <span class="st">"descending"</span>, <span class="st">"ascending+"</span>, <span class="st">"descending+"</span>, <span class="st">"as_is"</span><span class="op">)</span>,</span>
 <span>  h_space <span class="op">=</span> <span class="st">"auto"</span>,</span>
 <span>  v_space <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  nudge_x <span class="op">=</span> <span class="fl">0</span>,</span>
@@ -89,7 +90,17 @@ It can be any of <code>"top"</code>, <code>"bottom"</code>, <code>"center"</code
 nodes and edges in a plot.
 Should be one of: <code>ascending</code> (default), sorts nodes and edges from large to small
 (largest on top); <code>descending</code> sorts nodes and edges from small to large (smallest
-on top); <code>as_is</code> will leave the order of nodes and edges as they are in <code>data</code>.</p></dd>
+on top); <code>ascending+</code> Same as <code>ascending</code> but it also arranges edges and nodes
+by its aesthetics; <code>descending+</code> Same as <code>descending</code> but it also
+arranges edges/nodes by its aesthetics;
+<code>as_is</code> will leave the order of nodes and edges as they are in <code>data</code>.</p>
+<p>You can also provide a custom function to control the stacking order of nodes and
+edges. The function needs to accept one argument (<code>data</code>) which can be either
+nodes or edges data. The function needs to add a column named <code>node_order</code> containing
+numbers by which the nodes need to be ordered. In case of edges you need to add
+two columns. One named <code>edge_order</code>, controlling the order of outgoing edges,
+and one named <code>edge_order_end</code> controlling the order of incoming edges.
+For more details see <code><a href="../articles/stacking_order.html">vignette("stacking_order")</a></code>.</p></dd>
 
 
 <dt id="arg-h-space">h_space<a class="anchor" aria-label="anchor" href="#arg-h-space"></a></dt>

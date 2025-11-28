@@ -140,6 +140,8 @@ diagram. Think of:
 - stacking order of nodes and edges
 
 [`vignette("positioning")`](https://pepijn-devries.github.io/ggsankeyfier/articles/positioning.md)
+and
+[`vignette("stacking_order")`](https://pepijn-devries.github.io/ggsankeyfier/articles/stacking_order.md)
 will show you how.
 
 ### Decorating nodes and edges
@@ -176,10 +178,10 @@ from the Dutch Ministry of Agriculture, Nature and Food Quality
 
 ## Resources
 
-- Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries P
-  (*in prep.*) A Cumulative Impact Assessment on the North Sea Capacity
-  to Supply Ecosystem Services
-  [DOI:10.2139/ssrn.4760674](http://dx.doi.org/10.2139/ssrn.4760674)
+- Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries
+  P (2024) A Cumulative Impact Assessment on the North Sea Capacity to
+  Supply Ecosystem Services. Science of The Total Environment (498)
+  [DOI:10.1016/j.scitotenv.2024.174149](https://doi.org/10.1016/j.scitotenv.2024.174149)
 
 # Package index
 
@@ -230,3 +232,5 @@ from the Dutch Ministry of Agriculture, Nature and Food Quality
   Loop](https://pepijn-devries.github.io/ggsankeyfier/articles/loopdeloop.md):
 - [Positioning Sankey
   elements](https://pepijn-devries.github.io/ggsankeyfier/articles/positioning.md):
+- [Stacking
+  Order](https://pepijn-devries.github.io/ggsankeyfier/articles/stacking_order.md):

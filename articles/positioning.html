@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0008</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0010</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +42,7 @@
     <li><a class="dropdown-item" href="../articles/decorating.html">Decorating Sankey diagrams</a></li>
     <li><a class="dropdown-item" href="../articles/loopdeloop.html">Loop De Loop</a></li>
     <li><a class="dropdown-item" href="../articles/positioning.html">Positioning Sankey elements</a></li>
+    <li><a class="dropdown-item" href="../articles/stacking_order.html">Stacking Order</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -171,34 +172,8 @@ their levels (or order of appearance), the edges will be arranged in the
 order of <code>edge_id</code> (or their order of appearance). Other
 options are <code>order = "ascending"</code> and
 <code>order = "descending"</code>, both of which are based on the
-<code>y</code> aesthetic.</p>
-<p>In order to demonstrate the stacking order we reduce the number of
-records from the example data (i.e., only select the higher risk chains
-from the data). This will produce a less cluttered Sankey diagram.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">es_sub</span> <span class="op">&lt;-</span></span>
-<span>  <span class="va">ecosystem_services</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">RCSES</span> <span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">RCSES</span>, <span class="fl">0.99</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/pivot_stages_longer.html">pivot_stages_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"activity_realm"</span>, <span class="st">"biotic_realm"</span>, <span class="st">"service_section"</span><span class="op">)</span>,</span>
-<span>                      <span class="st">"RCSES"</span>, <span class="st">"service_section"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">es_sub</span>,</span>
-<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">stage</span>, y <span class="op">=</span> <span class="va">RCSES</span>, group <span class="op">=</span> <span class="va">node</span>, connector <span class="op">=</span> <span class="va">connector</span>,</span>
-<span>           edge_id <span class="op">=</span> <span class="va">edge_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>This will plot the nodes and edges in ascending stacking order
-(largest at the top):</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pos</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/position_sankey.html">position_sankey</a></span><span class="op">(</span>v_space <span class="op">=</span> <span class="st">"auto"</span>, order <span class="op">=</span> <span class="st">"ascending"</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/geom_sankeyedge.html">geom_sankeyedge</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">service_section</span><span class="op">)</span>, position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_sankeynode.html">geom_sankeynode</a></span><span class="op">(</span>position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span></span></code></pre></div>
-<p><img src="positioning_files/figure-html/stack_order_asc-1.png" class="r-plt" width="576"></p>
-<p>This will plot the nodes and edges in desacending stacking order
-(largest at the bottom):</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pos</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/position_sankey.html">position_sankey</a></span><span class="op">(</span>v_space <span class="op">=</span> <span class="st">"auto"</span>, order <span class="op">=</span> <span class="st">"descending"</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/geom_sankeyedge.html">geom_sankeyedge</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">service_section</span><span class="op">)</span>, position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_sankeynode.html">geom_sankeynode</a></span><span class="op">(</span>position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span></span></code></pre></div>
-<p><img src="positioning_files/figure-html/stack_order_des-1.png" class="r-plt" width="576"></p>
+<code>y</code> aesthetic. For more details see the dedicated
+<code><a href="../articles/stacking_order.html">vignette("stacking_order")</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="nudging">Nudging<a class="anchor" aria-label="anchor" href="#nudging"></a>
@@ -208,8 +183,20 @@ position text labels. Let’s use it to add labels to the nodes. Note that
 we are using a simple <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">ggplot2::geom_text()</a></code> layer, where we
 provide <code>"sankeynode"</code> as <code>stat</code> function and the
 <code>pos</code> object for positioning the labels.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pos</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/position_sankey.html">position_sankey</a></span><span class="op">(</span>v_space <span class="op">=</span> <span class="st">"auto"</span>, order <span class="op">=</span> <span class="st">"descending"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co">## Start with subsetting to a less cluttered data set</span></span>
+<span><span class="va">es_sub</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">ecosystem_services</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">RCSES</span> <span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">RCSES</span>, <span class="fl">0.99</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/pivot_stages_longer.html">pivot_stages_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"activity_realm"</span>, <span class="st">"biotic_realm"</span>, <span class="st">"service_section"</span><span class="op">)</span>,</span>
+<span>                      <span class="st">"RCSES"</span>, <span class="st">"service_section"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">es_sub</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">stage</span>, y <span class="op">=</span> <span class="va">RCSES</span>, group <span class="op">=</span> <span class="va">node</span>, connector <span class="op">=</span> <span class="va">connector</span>,</span>
+<span>           edge_id <span class="op">=</span> <span class="va">edge_id</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pos</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/position_sankey.html">position_sankey</a></span><span class="op">(</span>v_space <span class="op">=</span> <span class="st">"auto"</span>, order <span class="op">=</span> <span class="st">"descending"</span><span class="op">)</span></span>
 <span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/geom_sankeyedge.html">geom_sankeyedge</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">service_section</span><span class="op">)</span>, position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_sankeynode.html">geom_sankeynode</a></span><span class="op">(</span>position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">node</span><span class="op">)</span>, stat <span class="op">=</span> <span class="st">"sankeynode"</span>, position <span class="op">=</span> <span class="va">pos</span>, cex <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
@@ -218,7 +205,7 @@ provide <code>"sankeynode"</code> as <code>stat</code> function and the
 that case you need to <em>nudge</em> the calculated into the desired
 position. We also need to adjust the justification of the text labels
 and expand the x scales.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pos_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/position_sankey.html">position_sankey</a></span><span class="op">(</span>v_space <span class="op">=</span> <span class="st">"auto"</span>, order <span class="op">=</span> <span class="st">"descending"</span>, nudge_x <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
 <span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/geom_sankeyedge.html">geom_sankeyedge</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">service_section</span><span class="op">)</span>, position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_sankeynode.html">geom_sankeynode</a></span><span class="op">(</span>position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>

@@ -1,7 +1,8 @@
 # Changelog
 
-## ggsankeyfier v0.1.8.0008
+## ggsankeyfier v0.1.8.0010
 
+- Added better stacking order features
 - Added check workflow
 - Added code coverage workflow and badge
 - Improved test coverage

@@ -106,44 +106,8 @@ will be stacked in the order of their levels (or order of appearance),
 the edges will be arranged in the order of `edge_id` (or their order of
 appearance). Other options are `order = "ascending"` and
 `order = "descending"`, both of which are based on the `y` aesthetic.
-
-In order to demonstrate the stacking order we reduce the number of
-records from the example data (i.e., only select the higher risk chains
-from the data). This will produce a less cluttered Sankey diagram.
-
-``` r
-es_sub <-
-  ecosystem_services |>
-  subset(RCSES > quantile(RCSES, 0.99)) |>
-  pivot_stages_longer(c("activity_realm", "biotic_realm", "service_section"),
-                      "RCSES", "service_section")
-
-p <- ggplot(es_sub,
-       aes(x = stage, y = RCSES, group = node, connector = connector,
-           edge_id = edge_id))
-```
-
-This will plot the nodes and edges in ascending stacking order (largest
-at the top):
-
-``` r
-pos <- position_sankey(v_space = "auto", order = "ascending")
-p + geom_sankeyedge(aes(fill = service_section), position = pos) +
-  geom_sankeynode(position = pos)
-```
-
-![](positioning_files/figure-html/stack_order_asc-1.png)
-
-This will plot the nodes and edges in desacending stacking order
-(largest at the bottom):
-
-``` r
-pos <- position_sankey(v_space = "auto", order = "descending")
-p + geom_sankeyedge(aes(fill = service_section), position = pos) +
-  geom_sankeynode(position = pos)
-```
-
-![](positioning_files/figure-html/stack_order_des-1.png)
+For more details see the dedicated
+[`vignette("stacking_order")`](https://pepijn-devries.github.io/ggsankeyfier/articles/stacking_order.md).
 
 ## Nudging
 
@@ -156,6 +120,18 @@ layer, where we provide `"sankeynode"` as `stat` function and the `pos`
 object for positioning the labels.
 
 ``` r
+
+## Start with subsetting to a less cluttered data set
+es_sub <-
+  ecosystem_services |>
+  subset(RCSES > quantile(RCSES, 0.99)) |>
+  pivot_stages_longer(c("activity_realm", "biotic_realm", "service_section"),
+                      "RCSES", "service_section")
+
+p <- ggplot(es_sub,
+       aes(x = stage, y = RCSES, group = node, connector = connector,
+           edge_id = edge_id))
+
 pos <- position_sankey(v_space = "auto", order = "descending")
 p + geom_sankeyedge(aes(fill = service_section), position = pos) +
   geom_sankeynode(position = pos) +

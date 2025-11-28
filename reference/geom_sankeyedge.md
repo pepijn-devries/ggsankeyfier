@@ -18,7 +18,7 @@ geom_sankeysegment(
   position = "sankey",
   na.rm = FALSE,
   show.legend = NA,
-  order = c("ascending", "descending", "as_is"),
+  order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
   width = "auto",
   align = c("bottom", "top", "center", "justify"),
   h_space = "auto",
@@ -45,7 +45,7 @@ geom_sankeyedge(
   ncp = 100,
   width = "auto",
   align = c("bottom", "top", "center", "justify"),
-  order = c("ascending", "descending", "as_is"),
+  order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
   h_space = "auto",
   v_space = 0,
   nudge_x = 0,
@@ -152,8 +152,20 @@ An object of class `GeomSankeyedge` (inherits from `GeomSankeysegment`,
   stacking nodes and edges in a plot. Should be one of: `ascending`
   (default), sorts nodes and edges from large to small (largest on top);
   `descending` sorts nodes and edges from small to large (smallest on
-  top); `as_is` will leave the order of nodes and edges as they are in
-  `data`.
+  top); `ascending+` Same as `ascending` but it also arranges edges and
+  nodes by its aesthetics; `descending+` Same as `descending` but it
+  also arranges edges/nodes by its aesthetics; `as_is` will leave the
+  order of nodes and edges as they are in `data`.
+
+  You can also provide a custom function to control the stacking order
+  of nodes and edges. The function needs to accept one argument (`data`)
+  which can be either nodes or edges data. The function needs to add a
+  column named `node_order` containing numbers by which the nodes need
+  to be ordered. In case of edges you need to add two columns. One named
+  `edge_order`, controlling the order of outgoing edges, and one named
+  `edge_order_end` controlling the order of incoming edges. For more
+  details see
+  [`vignette("stacking_order")`](https://pepijn-devries.github.io/ggsankeyfier/articles/stacking_order.md).
 
 - width:
 

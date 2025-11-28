@@ -6,7 +6,8 @@ articles:
   decorating: decorating.html
   loopdeloop: loopdeloop.html
   positioning: positioning.html
-last_built: 2025-11-26T08:53Z
+  stacking_order: stacking_order.html
+last_built: 2025-11-28T23:44Z
 urls:
   reference: https://pepijn-devries.github.io/ggsankeyfier/reference
   article: https://pepijn-devries.github.io/ggsankeyfier/articles
