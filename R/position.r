@@ -17,7 +17,18 @@
 #' nodes and edges in a plot.
 #' Should be one of: `ascending` (default), sorts nodes and edges from large to small
 #' (largest on top); `descending` sorts nodes and edges from small to large (smallest
-#' on top); `as_is` will leave the order of nodes and edges as they are in `data`.
+#' on top); `ascending+` Same as `ascending` but it also arranges edges and nodes
+#' by its aesthetics; `descending+` Same as `descending` but it also
+#' arranges edges/nodes by its aesthetics;
+#' `as_is` will leave the order of nodes and edges as they are in `data`.
+#'
+#' You can also provide a custom function to control the stacking order of nodes and
+#' edges. The function needs to accept one argument (`data`) which can be either
+#' nodes or edges data. The function needs to add a column named `node_order` containing
+#' numbers by which the nodes need to be ordered. In case of edges you need to add
+#' two columns. One named `edge_order`, controlling the order of outgoing edges,
+#' and one named `edge_order_end` controlling the order of incoming edges.
+#' For more details see `vignette("stacking_order")`.
 #' @param h_space Horizontal space between split nodes (`numeric`). This argument is
 #' ignored when `split_nodes == FALSE`. Use `"auto"` to automatically position split nodes.
 #' @param v_space Vertical space between nodes (`numeric`). When set to zero (`0`),
@@ -88,12 +99,12 @@ PositionSankey <-
 #' @export
 position_sankey <-
   function(width = "auto", align = c("bottom", "top", "center", "justify"),
-           order = c("ascending", "descending", "as_is"),
+           order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
            h_space = "auto", v_space = 0,
            nudge_x = 0, nudge_y = 0,
            split_nodes = FALSE, split_tol = 1e-3, direction = c("forward", "backward"), ...) {
+    if (is.character(order)) order <- rlang::arg_match(order)
     align     <- rlang::arg_match(align)
-    order     <- rlang::arg_match(order)
     direction <- rlang::arg_match(direction)
 
     ggplot2::ggproto(

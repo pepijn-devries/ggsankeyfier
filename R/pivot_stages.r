@@ -65,7 +65,7 @@ pivot_stages_longer <-
     result <-
       data |>
       dplyr::ungroup() |>
-      dplyr::select(union(union(stages_from, values_from), additional_aes_from)) |>
+      dplyr::select(dplyr::any_of(union(union(stages_from, values_from), additional_aes_from))) |>
       dplyr::mutate(dplyr::across(dplyr::any_of(stages_from), ~ {
         if (is.factor(.)) . else {
           factor(., unique(.))
@@ -79,10 +79,10 @@ pivot_stages_longer <-
     result <-
       lapply(utils::head(seq_along(stages_from), -1), function(i) {
         result |>
-          dplyr::select(stages_from[i + (0:1)]) |>
+          dplyr::select(dplyr::any_of(stages_from[i + (0:1)])) |>
           dplyr::rename(node_from = stages_from[i], node_to = stages_from[i + 1]) |>
           dplyr::bind_cols(
-            result |> dplyr::select(union(values_from, additional_aes_from))
+            result |> dplyr::select(dplyr::any_of(union(values_from, additional_aes_from)))
           ) |>
           dplyr::group_by(dplyr::across(dplyr::any_of(c("node_from", "node_to", additional_aes_from)))) |>
           dplyr::summarise(
@@ -102,7 +102,7 @@ pivot_stages_longer <-
       tidyr::nest(to = c("node", "stage")) |>
       tidyr::pivot_longer(c("from", "to"), names_to = "connector") |>
       tidyr::unnest("value") |>
-      dplyr::mutate(node = factor(as.character(.data[["node"]]), lvls))
+      dplyr::mutate(node = factor(as.character(.data$node), lvls))
 
     return(result)
   }

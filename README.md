@@ -153,7 +153,8 @@ diagram. Think of:
 - introducing a horizontal split in nodes
 - stacking order of nodes and edges
 
-`vignette("positioning")` will show you how.
+`vignette("positioning")` and `vignette("stacking_order")` will show you
+how.
 
 ### Decorating nodes and edges
 
@@ -187,7 +188,7 @@ from the Dutch Ministry of Agriculture, Nature and Food Quality
 
 ## Resources
 
-- Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries P
-  (*in prep.*) A Cumulative Impact Assessment on the North Sea Capacity
-  to Supply Ecosystem Services
-  [DOI:10.2139/ssrn.4760674](http://dx.doi.org/10.2139/ssrn.4760674)
+- Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries
+  P (2024) A Cumulative Impact Assessment on the North Sea Capacity to
+  Supply Ecosystem Services. Science of The Total Environment (498)
+  [DOI:10.1016/j.scitotenv.2024.174149](https://doi.org/10.1016/j.scitotenv.2024.174149)

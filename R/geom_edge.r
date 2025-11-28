@@ -70,7 +70,7 @@ geom_sankeyedge <-
            position = "sankey", na.rm = FALSE, show.legend = NA,
            slope = 0.5, ncp = 100,
            width = "auto", align = c("bottom", "top", "center", "justify"),
-           order = c("ascending", "descending", "as_is"),
+           order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
            h_space = "auto", v_space = 0,
            nudge_x = 0, nudge_y = 0,
            split_nodes = FALSE, split_tol = 1e-3,

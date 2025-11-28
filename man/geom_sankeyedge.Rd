@@ -22,7 +22,7 @@ geom_sankeysegment(
   position = "sankey",
   na.rm = FALSE,
   show.legend = NA,
-  order = c("ascending", "descending", "as_is"),
+  order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
   width = "auto",
   align = c("bottom", "top", "center", "justify"),
   h_space = "auto",
@@ -49,7 +49,7 @@ geom_sankeyedge(
   ncp = 100,
   width = "auto",
   align = c("bottom", "top", "center", "justify"),
-  order = c("ascending", "descending", "as_is"),
+  order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
   h_space = "auto",
   v_space = 0,
   nudge_x = 0,
@@ -121,7 +121,18 @@ display.}
 nodes and edges in a plot.
 Should be one of: \code{ascending} (default), sorts nodes and edges from large to small
 (largest on top); \code{descending} sorts nodes and edges from small to large (smallest
-on top); \code{as_is} will leave the order of nodes and edges as they are in \code{data}.}
+on top); \verb{ascending+} Same as \code{ascending} but it also arranges edges and nodes
+by its aesthetics; \verb{descending+} Same as \code{descending} but it also
+arranges edges/nodes by its aesthetics;
+\code{as_is} will leave the order of nodes and edges as they are in \code{data}.
+
+You can also provide a custom function to control the stacking order of nodes and
+edges. The function needs to accept one argument (\code{data}) which can be either
+nodes or edges data. The function needs to add a column named \code{node_order} containing
+numbers by which the nodes need to be ordered. In case of edges you need to add
+two columns. One named \code{edge_order}, controlling the order of outgoing edges,
+and one named \code{edge_order_end} controlling the order of incoming edges.
+For more details see \code{vignette("stacking_order")}.}
 
 \item{width}{Width of the node (\code{numeric}). When \code{split_nodes} is set to \code{TRUE}
 each part of the split node will have half this width. Use \code{"auto"} to automatically

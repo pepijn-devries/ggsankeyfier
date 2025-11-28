@@ -101,3 +101,59 @@ test_that(
       ggsankeyfier:::.node_summary(NULL, dat2)
     })
   })
+
+test_that("Layer positions are calculated", {
+  expect_no_error({
+    p <- ggplot(es,
+                aes(x = stage, y = RCSES, group = node, connector = connector,
+                    edge_id = edge_id)) +
+      geom_sankeyedge() + geom_sankeynode()
+
+    cp <- StatSankeyedge$compute_panel(
+      data = p$data |>
+        dplyr::mutate(group = .data$node,
+                      x = as.numeric(.data$stage),
+                      y = .data$RCSES,
+                      PANEL = 1)
+    )
+    ggsankeyfier:::.compute_layer_positions(PositionSankey, cp)
+  })
+})
+
+test_that("Ordering by aesthetics works", {
+  expect_no_error({
+    pos <- position_sankey(v_space = "auto", order = "ascending+")
+
+    p <- ggplot(es,
+                aes(x = stage, y = RCSES, group = node, connector = connector,
+                    edge_id = edge_id)) +
+      geom_sankeyedge(position = pos) + geom_sankeynode(position = pos)
+    print(p)
+  })
+})
+
+test_that("Custom ordering works", {
+  expect_no_error({
+
+    fun <- function(data) {
+      if ("edge_id" %in% names(data)) {
+
+        data$edge_order_end <- data$edge_order <- 1
+
+      } else {
+
+        data$node_order <- 1
+
+      }
+      return(data)
+
+    }
+    pos <- position_sankey(v_space = "auto", order = fun)
+
+    p <- ggplot(es,
+                aes(x = stage, y = RCSES, group = node, connector = connector,
+                    edge_id = edge_id)) +
+      geom_sankeyedge(position = pos) + geom_sankeynode(position = pos)
+    print(p)
+  })
+})
