@@ -21,18 +21,8 @@
       dplyr::summarise(max_size = sum(.data$node_size),
                        n_nodes = dplyr::n())
 
-  } else if (!"node_size" %in% names(data)) {
-    dplyr::bind_rows(
-      data |> dplyr::select(dplyr::any_of(c("PANEL", "x", "node_id",
-                              node_size = "y_node_size"))),
-      data |> dplyr::select(dplyr::any_of(c("PANEL", x = "xend", node_id = "node_id_to",
-                              node_size = "yend_node_size")))
-    ) |>
-      dplyr::distinct() |>
-      .group_across("PANEL", "x") |>
-      dplyr::summarise(n_nodes = dplyr::n(), max_size = sum(.data$node_size)) |>
-      dplyr::ungroup()
   } else {
+
     data |>
       dplyr::select(dplyr::any_of(c("PANEL", "x", "connector", "node_id", "node_size"))) |>
       dplyr::distinct() |>
@@ -41,6 +31,7 @@
       .group_across("PANEL", "x") |>
       dplyr::summarise(n_nodes = dplyr::n(), max_size = sum(.data$node_size)) |>
       dplyr::ungroup()
+
   }
 }
 
