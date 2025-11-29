@@ -111,6 +111,19 @@ p +
 You could even go beyond the `slope` of 1, but then the curve will start to zigzag. With values
 less than 1 will result in gentler slopes.
 
+You can also position the infliction point of the curve. By default it's exactly
+at the center in between the two connecting nodes. By setting the `curve_weight`
+parameter to values close to zero, the infliction point will move to the left.
+Values close to one will make it move to the right. You can set this parameter
+for each individual stage (the same is true for the `slope` parameter).
+
+```{r curve_weight, fig.width=6, fig.height=3}
+p +
+  geom_sankeyedge(curve_weight = c(0.1, 0.9), position = pos,
+                  mapping = aes(fill = service_section)) +
+  geom_sankeynode(position = pos)
+```
+
 We can also play with how much the curve is widened. By default the width of the curve is
 constant along the Bézier curve it follows. By setting the `waist` aesthetic, the width
 of the curve is blown up, or shrunk down at its center. There are also `scale_waist_*` functions

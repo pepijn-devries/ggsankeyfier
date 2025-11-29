@@ -2,6 +2,7 @@ ggsankeyfier v0.1.8.0011
 -------------
 
  * Added better stacking order features
+ * Added `curve_weight` parameter to `geom_sankeyedge()`
  * Added check workflow
  * Added code coverage workflow and badge
  * Improved test coverage
