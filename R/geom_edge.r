@@ -24,6 +24,10 @@
 #' @inheritParams ggplot2::geom_segment
 #' @param slope Slope parameter (`numeric`) for the Bezier curves used to depict the edges.
 #' Any value between 0 and 1 will work nicely. Other non-zero values will also work.
+#' @param curve_weight Places weight on the Bezier curve. Values close to zero will
+#' pull the inflection point of the curve towards outgoing nodes. Values close to one
+#' will pull them towards incoming nodes. The default is 0.5, which will place the
+#' inflection point exactly in the middle of the connecting nodes.
 #' @param ncp Number of control points on the Bezier curve that forms the edge. Larger
 #' numbers will result in smoother curves, but cost more computational time. Default is
 #' 100.
@@ -49,17 +53,22 @@ GeomSankeyedge <-
     draw_panel   = .draw_edges,
     setup_data   = function(data, params) {
       data <- GeomSankeysegment$setup_data(data, params)
-      data <- data |>
-        dplyr::mutate(
-          slope = params$slope,
-          ncp   = params$ncp
+      unique_x <- unique(data$x) |> sort()
+      curve_params <-
+        data.frame(
+          x = unique_x,
+          slope = rep(params$slope, length.out = length(unique_x)),
+          curve_weight = rep(params$curve_weight, length.out = length(unique_x)),
+          ncp = params$ncp
         )
+      data <- data |>
+        dplyr::left_join(curve_params, by = "x")
       return(data)
     },
     rename_size  = FALSE,
     default_aes  = c(GeomSankeysegment$default_aes, waist = 1),
     draw_key     = draw_key_sankeyedge,
-    extra_params = c("na.rm", "slope", "ncp")
+    extra_params = c("na.rm", "slope", "curve_weight", "ncp")
   )
 
 #' @name geom_sankeyedge
@@ -68,7 +77,7 @@ GeomSankeyedge <-
 geom_sankeyedge <-
   function(mapping = NULL, data = NULL, stat = "sankeyedge",
            position = "sankey", na.rm = FALSE, show.legend = NA,
-           slope = 0.5, ncp = 100,
+           slope = 0.5, curve_weight = 0.5, ncp = 100,
            width = "auto", align = c("bottom", "top", "center", "justify"),
            order = c("ascending", "descending", "ascending+", "descending+", "as_is"),
            h_space = "auto", v_space = 0,
@@ -82,6 +91,7 @@ geom_sankeyedge <-
     ggplot2::layer(
       geom     = GeomSankeyedge, mapping = mapping, data = data, stat = stat,
       position = position, show.legend = show.legend, inherit.aes = inherit.aes,
-      params   = list(na.rm = na.rm, slope = slope, ncp = ncp, ...)
+      params   = list(na.rm = na.rm, slope = slope, curve_weight = curve_weight,
+                      ncp = ncp, ...)
     )
   }

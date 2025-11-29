@@ -22,6 +22,7 @@ stat_sankeyedge(
   position = "sankey",
   na.rm = FALSE,
   slope = 0.5,
+  curve_weight = 0.5,
   ncp = 100,
   show.legend = NA,
   inherit.aes = TRUE,
@@ -73,6 +74,11 @@ a warning. If \code{TRUE}, missing values are silently removed.}
 
 \item{slope}{Slope parameter (\code{numeric}) for the Bezier curves used to depict the edges.
 Any value between 0 and 1 will work nicely. Other non-zero values will also work.}
+
+\item{curve_weight}{Places weight on the Bezier curve. Values close to zero will
+pull the inflection point of the curve towards outgoing nodes. Values close to one
+will pull them towards incoming nodes. The default is 0.5, which will place the
+inflection point exactly in the middle of the connecting nodes.}
 
 \item{ncp}{Number of control points on the Bezier curve that forms the edge. Larger
 numbers will result in smoother curves, but cost more computational time. Default is

@@ -28,12 +28,13 @@ StatSankeyedge <-
 #' @export
 stat_sankeyedge <-
   function(mapping = NULL, data = NULL, geom = "sankeyedge",
-           position = "sankey", na.rm = FALSE, slope = 0.5, ncp = 100,
-           show.legend = NA, inherit.aes = TRUE, ...) {
+           position = "sankey", na.rm = FALSE, slope = 0.5, curve_weight = 0.5,
+           ncp = 100, show.legend = NA, inherit.aes = TRUE, ...) {
 
     ggplot2::layer(
       stat     = StatSankeyedge, data = data, mapping = mapping, geom = geom,
       position = position, show.legend = show.legend, inherit.aes = inherit.aes,
-      params   = list(na.rm = na.rm, slope = slope, ncp = ncp, ...)
+      params   = list(na.rm = na.rm, slope = slope, curve_weight = curve_weight,
+                      ncp = ncp, ...)
     )
   }

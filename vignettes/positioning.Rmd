@@ -1,8 +1,8 @@
 ---
-title: "Positioning Sankey elements"
+title: "Positioning Sankey Elements"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Positioning Sankey elements}
+  %\VignetteIndexEntry{Positioning Sankey Elements}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

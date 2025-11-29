@@ -35,7 +35,7 @@ The `ggsankeyfier` packages allows you to visualise your data as Sankey or Alluv
 A Sankey diagram is essentially a stacked bar plot, where the bands connect bars across
 stages (on the x-axis), to show how quantities flow between them.
 
-## Why use `ggsankeyfier`?
+## Why Use `ggsankeyfier`?
 
 `ggsankeyfier` allows you to add Sankey diagram layers to a `ggplot2::ggplot()`. The
 package also provides `stat_*` and `position_*` functions that allow you
@@ -56,7 +56,7 @@ install.packages("ggsankeyfier")
 devtools::install_github('pepijn-devries/ggsankeyfier')
 ```
 
-## Important concepts
+## Important Concepts
 
 As there is some variation in the definition and terminology used in Sankey diagrams,
 there are some introduced here for consistency across the package documentation.
@@ -127,7 +127,7 @@ to `group`. In addition to these 'standard' aesthetics, you also need to specify
 `connector` specifying the direction of an edge (one of `'from'` or `'to'`); and an
 `edge_id` which is used to determine which connector ends should be paired together.
 
-### Data management
+### Data Management
 
 Note that the plotting routines require data organised in a `data.frame`, with in each
 row a 'connector'. A connector is either the start or an end of an edge. This allows
@@ -136,7 +136,7 @@ cases this is not the type of data you will be working with. Check
 `vignette("data_management")`, on how to rearrange your data for displaying it in a
 Sankey diagram.
 
-### Positioning nodes and edges
+### Positioning Nodes and Edges
 
 The package gives you much control on the positioning of elements in the diagram. Think of:
 
@@ -147,7 +147,7 @@ The package gives you much control on the positioning of elements in the diagram
 
 `vignette("positioning")` and `vignette("stacking_order")` will show you how.
 
-### Decorating nodes and edges
+### Decorating Nodes and Edges
 
 When creating your own Sankey diagrams you may want to alter its
 appearance. You may want to:

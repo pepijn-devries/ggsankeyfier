@@ -46,7 +46,8 @@
     dplyr::mutate(
       bez =
         mapply(
-          function(x, y, xend, yend, y_size, slope, ncp, fill, colour, linetype, linewidth,
+          function(x, y, xend, yend, y_size, slope, curve_weight,
+                   ncp, fill, colour, linetype, linewidth,
                    alpha, waist, res, connector) {
             gp <- grid::gpar(fill = fill, col = colour,
                              lwd = linewidth*ggplot2::.pt, lty = linetype, alpha = alpha)
@@ -90,7 +91,9 @@
               )
             } else {
               vwline::offsetBezierGrob(
-                x      = grid::unit(c(x, x + slope2, xend - slope2, xend), "npc"),
+                x      = grid::unit(c(
+                  x, x + slope2 * (curve_weight + 0.5),
+                  xend - slope2 * (1.5 - curve_weight), xend), "npc"),
                 y      = grid::unit(c(y, y, yend, yend), "npc"),
                 w      = grid::unit(c(1, waist, 1)*y_size, "npc")*asp_cor,
                 stepFn = gridBezier::nSteps(ncp),
@@ -99,7 +102,9 @@
             }
           },
           x = .data$x, y = .data$y, xend = .data$xend,
-          yend = .data$yend, y_size = .data$edge_size, slope = .data$slope,
+          yend = .data$yend, y_size = .data$edge_size,
+          slope = .data$slope,
+          curve_weight = .data$curve_weight,
           ncp = .data$ncp,
           fill = .data$fill, colour = .data$colour, linetype = .data$linetype,
           linewidth = .data$linewidth,
