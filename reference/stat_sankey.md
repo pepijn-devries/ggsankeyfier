@@ -15,6 +15,7 @@ stat_sankeyedge(
   position = "sankey",
   na.rm = FALSE,
   slope = 0.5,
+  curve_weight = 0.5,
   ncp = 100,
   show.legend = NA,
   inherit.aes = TRUE,
@@ -91,6 +92,14 @@ An object of class `StatSankeynode` (inherits from `Stat`, `ggproto`,
   Slope parameter (`numeric`) for the Bezier curves used to depict the
   edges. Any value between 0 and 1 will work nicely. Other non-zero
   values will also work.
+
+- curve_weight:
+
+  Places weight on the Bezier curve. Values close to zero will pull the
+  inflection point of the curve towards outgoing nodes. Values close to
+  one will pull them towards incoming nodes. The default is 0.5, which
+  will place the inflection point exactly in the middle of the
+  connecting nodes.
 
 - ncp:
 

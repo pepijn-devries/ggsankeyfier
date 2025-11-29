@@ -1,6 +1,6 @@
-# Decorating Sankey diagrams
+# Decorating Sankey Diagrams
 
-## Decorating nodes and edges with aesthetics
+## Decorating Nodes and Edges with Aesthetics
 
 With the `waist` aesthetic you can modify the shape of the edge curve,
 this is presented in more detail in the [Curve shape](#curve-shape)
@@ -42,7 +42,7 @@ that each variable that is assigned to one or more aesthetics will get
 its own guide legend. More about this in the section [Keys and
 legends](#keys-and-legends).
 
-## Additional layers
+## Additional Layers
 
 When you want to add additional layers to your plot (such as text
 labels), it is important that those layers apply the same statistics and
@@ -98,7 +98,7 @@ p +
 
 ![](decorating_files/figure-html/layer_bar-1.png)
 
-## Curve shape
+## Curve Shape
 
 The curves that connect the nodes in `ggsankeyfier` are drawn as
 symmetrical widened
@@ -117,6 +117,22 @@ p +
 You could even go beyond the `slope` of 1, but then the curve will start
 to zigzag. With values less than 1 will result in gentler slopes.
 
+You can also position the infliction point of the curve. By default it’s
+exactly at the center in between the two connecting nodes. By setting
+the `curve_weight` parameter to values close to zero, the infliction
+point will move to the left. Values close to one will make it move to
+the right. You can set this parameter for each individual stage (the
+same is true for the `slope` parameter).
+
+``` r
+p +
+  geom_sankeyedge(curve_weight = c(0.1, 0.9), position = pos,
+                  mapping = aes(fill = service_section)) +
+  geom_sankeynode(position = pos)
+```
+
+![](decorating_files/figure-html/curve_weight-1.png)
+
 We can also play with how much the curve is widened. By default the
 width of the curve is constant along the Bézier curve it follows. By
 setting the `waist` aesthetic, the width of the curve is blown up, or
@@ -134,7 +150,7 @@ p +
 
 ![](decorating_files/figure-html/curve_waist-1.png)
 
-## Keys and legends
+## Keys and Legends
 
 Both nodes and edges have their own `draw_key()` function, meaning that
 they are drawn automatically by
@@ -154,7 +170,7 @@ p +
 
 ![](decorating_files/figure-html/legend_keys-1.png)
 
-## Different themes
+## Different Themes
 
 At the top of this vignette we set
 [`ggplot2::theme_light()`](https://ggplot2.tidyverse.org/reference/ggtheme.html)

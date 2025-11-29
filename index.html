@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0010</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0011</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +41,10 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/data_management.html">Sankey data management</a></li>
-    <li><a class="dropdown-item" href="articles/decorating.html">Decorating Sankey diagrams</a></li>
+<li><a class="dropdown-item" href="articles/data_management.html">Sankey Data Management</a></li>
+    <li><a class="dropdown-item" href="articles/decorating.html">Decorating Sankey Diagrams</a></li>
     <li><a class="dropdown-item" href="articles/loopdeloop.html">Loop De Loop</a></li>
-    <li><a class="dropdown-item" href="articles/positioning.html">Positioning Sankey elements</a></li>
+    <li><a class="dropdown-item" href="articles/positioning.html">Positioning Sankey Elements</a></li>
     <li><a class="dropdown-item" href="articles/stacking_order.html">Stacking Order</a></li>
   </ul>
 </li>
@@ -74,7 +74,7 @@
 <p>The <code>ggsankeyfier</code> packages allows you to visualise your data as Sankey or Alluvial diagrams. A Sankey diagram is essentially a stacked bar plot, where the bands connect bars across stages (on the x-axis), to show how quantities flow between them.</p>
 </div>
 <div class="section level2">
-<h2 id="why-use-ggsankeyfier">Why use <code>ggsankeyfier</code>?<a class="anchor" aria-label="anchor" href="#why-use-ggsankeyfier"></a>
+<h2 id="why-use-ggsankeyfier">Why Use <code>ggsankeyfier</code>?<a class="anchor" aria-label="anchor" href="#why-use-ggsankeyfier"></a>
 </h2>
 <p><code>ggsankeyfier</code> allows you to add Sankey diagram layers to a <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>. The package also provides <code>stat_*</code> and <code>position_*</code> functions that allow you to add all sorts of other layers, such as text and labels.</p>
 <p>Furthermore, the data model used by the package allows you to visualise flows that skip stages or even feedback loops.</p>
@@ -94,7 +94,7 @@
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'pepijn-devries/ggsankeyfier'</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="important-concepts">Important concepts<a class="anchor" aria-label="anchor" href="#important-concepts"></a>
+<h2 id="important-concepts">Important Concepts<a class="anchor" aria-label="anchor" href="#important-concepts"></a>
 </h2>
 <p>As there is some variation in the definition and terminology used in Sankey diagrams, there are some introduced here for consistency across the package documentation. Here we try to adhere to common definitions used in the <a href="https://en.wikipedia.org/wiki/Graph_theory" class="external-link">graph theory</a>. This theory is used to model pairwise relationships between ‘nodes’ which are connected by ‘edges’. These aspects are circled in the illustration below.</p>
 <figure><img src="reference/figures/important_aspects.svg" alt="Important aspects"><figcaption aria-hidden="true">
@@ -167,12 +167,12 @@ Important aspects
 <p><img src="reference/figures/README-general_illustration-1.svg"><!-- --></p>
 <p>For consistency with aesthetics used in other <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code> layers, the stage variable should be assigned to <code>x</code>, the quantity of the nodes and edges to <code>y</code> and the node identifier to <code>group</code>. In addition to these ‘standard’ aesthetics, you also need to specify a <code>connector</code> specifying the direction of an edge (one of <code>'from'</code> or <code>'to'</code>); and an <code>edge_id</code> which is used to determine which connector ends should be paired together.</p>
 <div class="section level3">
-<h3 id="data-management">Data management<a class="anchor" aria-label="anchor" href="#data-management"></a>
+<h3 id="data-management">Data Management<a class="anchor" aria-label="anchor" href="#data-management"></a>
 </h3>
 <p>Note that the plotting routines require data organised in a <code>data.frame</code>, with in each row a ‘connector’. A connector is either the start or an end of an edge. This allows you to provide different characteristics for each of these ends. However, in most cases this is not the type of data you will be working with. Check <code><a href="articles/data_management.html">vignette("data_management")</a></code>, on how to rearrange your data for displaying it in a Sankey diagram.</p>
 </div>
 <div class="section level3">
-<h3 id="positioning-nodes-and-edges">Positioning nodes and edges<a class="anchor" aria-label="anchor" href="#positioning-nodes-and-edges"></a>
+<h3 id="positioning-nodes-and-edges">Positioning Nodes and Edges<a class="anchor" aria-label="anchor" href="#positioning-nodes-and-edges"></a>
 </h3>
 <p>The package gives you much control on the positioning of elements in the diagram. Think of:</p>
 <ul>
@@ -184,7 +184,7 @@ Important aspects
 <p><code><a href="articles/positioning.html">vignette("positioning")</a></code> and <code><a href="articles/stacking_order.html">vignette("stacking_order")</a></code> will show you how.</p>
 </div>
 <div class="section level3">
-<h3 id="decorating-nodes-and-edges">Decorating nodes and edges<a class="anchor" aria-label="anchor" href="#decorating-nodes-and-edges"></a>
+<h3 id="decorating-nodes-and-edges">Decorating Nodes and Edges<a class="anchor" aria-label="anchor" href="#decorating-nodes-and-edges"></a>
 </h3>
 <p>When creating your own Sankey diagrams you may want to alter its appearance. You may want to:</p>
 <ul>
@@ -211,7 +211,7 @@ Important aspects
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
 </h2>
 <ul>
-<li>Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries P (2024) A Cumulative Impact Assessment on the North Sea Capacity to Supply Ecosystem Services. Science of The Total Environment (498) <a href="https://doi.org/10.1016/j.scitotenv.2024.174149" class="external-link">DOI:10.1016/j.scitotenv.2024.174149</a>
+<li>Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries P (2024) A Cumulative Impact Assessment on the North Sea Capacity to Supply Ecosystem Services. Science of The Total Environment (498) <a href="https://doi.org/10.1016/j.scitotenv.2024.174149" class="external-link">DOI:10.1016/j.scitotenv.2024.174149</a>
 </li>
 </ul>
 </div>

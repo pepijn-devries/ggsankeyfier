@@ -1,4 +1,4 @@
-# Positioning Sankey elements
+# Positioning Sankey Elements
 
 ## Using `position_sankey`
 

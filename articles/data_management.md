@@ -1,4 +1,4 @@
-# Sankey data management
+# Sankey Data Management
 
 ## Introduction
 
@@ -9,7 +9,7 @@ organised in a wide format with stages of the Sankey diagram in columns
 of the `data.frame`. For plotting this needs to be converted into a long
 format. Why and how to do this, is discussed below.
 
-## Wide or long format?
+## Wide or Long Format?
 
 A wide format would be typically used when working with the data. This
 can be best understood when the framework you wish to visualise
@@ -32,7 +32,7 @@ working with information on chains, it makes sense to work with a wide
 format. When plotting with `ggsankeyfier` or modification of flow
 information is required, a long format is more suitable.
 
-### Converting from wide to long
+### Converting from Wide to Long
 
 This package comes with a function that allow you to pivot information
 with stages organised as columns (i.e., wide format) to a long format.
@@ -68,7 +68,7 @@ es_long <-
   )
 ```
 
-## The edge id and connector
+## The Edge id and Connector
 
 After pivoting to the long format as illustrated above you will note two
 additional columns that contain information that was not available in

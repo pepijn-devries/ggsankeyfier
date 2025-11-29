@@ -1,6 +1,6 @@
 # Loop De Loop
 
-## To cycle or not to cycle
+## To Cycle or not to Cycle
 
 The `ggsankeyfier` package requires you to specify from which node, to
 which node an edge flows. See
@@ -70,7 +70,7 @@ p %+% es_subset_feedback
 
 ![](loopdeloop_files/figure-html/back-1.png)
 
-## Self reference
+## Self Reference
 
 Edges don’t even have to flow from one stage to another regardless of
 its direction. Instead, it is also possible to let an edge flow from and

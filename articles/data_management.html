@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Sankey data management • ggsankeyfier</title>
+<title>Sankey Data Management • ggsankeyfier</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -15,7 +15,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Sankey data management">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Sankey Data Management">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0010</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0011</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +38,10 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/data_management.html">Sankey data management</a></li>
-    <li><a class="dropdown-item" href="../articles/decorating.html">Decorating Sankey diagrams</a></li>
+<li><a class="dropdown-item" href="../articles/data_management.html">Sankey Data Management</a></li>
+    <li><a class="dropdown-item" href="../articles/decorating.html">Decorating Sankey Diagrams</a></li>
     <li><a class="dropdown-item" href="../articles/loopdeloop.html">Loop De Loop</a></li>
-    <li><a class="dropdown-item" href="../articles/positioning.html">Positioning Sankey elements</a></li>
+    <li><a class="dropdown-item" href="../articles/positioning.html">Positioning Sankey Elements</a></li>
     <li><a class="dropdown-item" href="../articles/stacking_order.html">Stacking Order</a></li>
   </ul>
 </li>
@@ -64,7 +64,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.svg" class="logo" alt=""><h1>Sankey data management</h1>
+      <img src="../logo.svg" class="logo" alt=""><h1>Sankey Data Management</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/pepijn-devries/ggsankeyfier/blob/master/vignettes/data_management.Rmd" class="external-link"><code>vignettes/data_management.Rmd</code></a></small>
@@ -85,7 +85,7 @@ of the <code>data.frame</code>. For plotting this needs to be converted
 into a long format. Why and how to do this, is discussed below.</p>
 </div>
 <div class="section level2">
-<h2 id="wide-or-long-format">Wide or long format?<a class="anchor" aria-label="anchor" href="#wide-or-long-format"></a>
+<h2 id="wide-or-long-format">Wide or Long Format?<a class="anchor" aria-label="anchor" href="#wide-or-long-format"></a>
 </h2>
 <p>A wide format would be typically used when working with the data.
 This can be best understood when the framework you wish to visualise
@@ -106,7 +106,7 @@ working with information on chains, it makes sense to work with a wide
 format. When plotting with <code>ggsankeyfier</code> or modification of
 flow information is required, a long format is more suitable.</p>
 <div class="section level3">
-<h3 id="converting-from-wide-to-long">Converting from wide to long<a class="anchor" aria-label="anchor" href="#converting-from-wide-to-long"></a>
+<h3 id="converting-from-wide-to-long">Converting from Wide to Long<a class="anchor" aria-label="anchor" href="#converting-from-wide-to-long"></a>
 </h3>
 <p>This package comes with a function that allow you to pivot
 information with stages organised as columns (i.e., wide format) to a
@@ -143,7 +143,7 @@ follows:</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="the-edge-id-and-connector">The edge id and connector<a class="anchor" aria-label="anchor" href="#the-edge-id-and-connector"></a>
+<h2 id="the-edge-id-and-connector">The Edge id and Connector<a class="anchor" aria-label="anchor" href="#the-edge-id-and-connector"></a>
 </h2>
 <p>After pivoting to the long format as illustrated above you will note
 two additional columns that contain information that was not available
