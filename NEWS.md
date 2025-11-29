@@ -1,4 +1,4 @@
-ggsankeyfier v0.1.8.0011
+ggsankeyfier v0.1.8.0012
 -------------
 
  * Added better stacking order features
