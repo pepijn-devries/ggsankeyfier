@@ -1,8 +1,8 @@
 ---
-title: "Decorating Sankey diagrams"
+title: "Decorating Sankey Diagrams"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Decorating Sankey diagrams}
+  %\VignetteIndexEntry{Decorating Sankey Diagrams}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Decorating nodes and edges with aesthetics
+## Decorating Nodes and Edges with Aesthetics
 
 With the `waist` aesthetic you can modify the shape of the edge curve, this is
 presented in more detail in the [Curve shape] section. Here it is shown how Nodes and edges can
@@ -54,7 +54,7 @@ Note that both nodes and edges can be decorated separately. Also note that
 each variable that is assigned to one or more aesthetics will get its
 own guide legend. More about this in the section [Keys and legends].
 
-## Additional layers
+## Additional Layers
 
 When you want to add additional layers to your plot (such as text labels), it is important
 that those layers apply the same statistics and positioning as the `geom_sankeyedge` or
@@ -95,7 +95,7 @@ p +
   geom_bar(position = pos, stat = "sankeynode")
 ```
 
-## Curve shape
+## Curve Shape
 
 The curves that connect the nodes in `ggsankeyfier` are drawn as symmetrical widened
 [Bézier](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) curves. The slope of
@@ -123,7 +123,7 @@ p +
   geom_sankeynode(position = pos)
 ```
 
-## Keys and legends
+## Keys and Legends
 
 Both nodes and edges have their own `draw_key()` function, meaning that they are
 drawn automatically by `ggplot2::guide_legend()`. When multiple aesthetics
@@ -139,7 +139,7 @@ p +
   scale_fill_binned(guide = "legend")
 ```
 
-## Different themes
+## Different Themes
 
 At the top of this vignette we set `ggplot2::theme_light()` as the default theme.
 It is also possible to add themes directly to the plot:

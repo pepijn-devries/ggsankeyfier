@@ -22,7 +22,7 @@ or Alluvial diagrams. A Sankey diagram is essentially a stacked bar
 plot, where the bands connect bars across stages (on the x-axis), to
 show how quantities flow between them.
 
-## Why use `ggsankeyfier`?
+## Why Use `ggsankeyfier`?
 
 `ggsankeyfier` allows you to add Sankey diagram layers to a
 `ggplot2::ggplot()`. The package also provides `stat_*` and `position_*`
@@ -46,7 +46,7 @@ install.packages("ggsankeyfier")
 devtools::install_github('pepijn-devries/ggsankeyfier')
 ```
 
-## Important concepts
+## Important Concepts
 
 As there is some variation in the definition and terminology used in
 Sankey diagrams, there are some introduced here for consistency across
@@ -133,7 +133,7 @@ addition to these ‘standard’ aesthetics, you also need to specify a
 `'to'`); and an `edge_id` which is used to determine which connector
 ends should be paired together.
 
-### Data management
+### Data Management
 
 Note that the plotting routines require data organised in a
 `data.frame`, with in each row a ‘connector’. A connector is either the
@@ -143,7 +143,7 @@ not the type of data you will be working with. Check
 `vignette("data_management")`, on how to rearrange your data for
 displaying it in a Sankey diagram.
 
-### Positioning nodes and edges
+### Positioning Nodes and Edges
 
 The package gives you much control on the positioning of elements in the
 diagram. Think of:
@@ -156,7 +156,7 @@ diagram. Think of:
 `vignette("positioning")` and `vignette("stacking_order")` will show you
 how.
 
-### Decorating nodes and edges
+### Decorating Nodes and Edges
 
 When creating your own Sankey diagrams you may want to alter its
 appearance. You may want to:
@@ -188,7 +188,7 @@ from the Dutch Ministry of Agriculture, Nature and Food Quality
 
 ## Resources
 
-- Piet GJ, Jongbloed RH, Bentley JW, Grundlehner A, Tamis JE, De Vries
+- Piet GJ, Bentley JW, Jongbloed RH, Grundlehner A, Tamis JE, De Vries
   P (2024) A Cumulative Impact Assessment on the North Sea Capacity to
   Supply Ecosystem Services. Science of The Total Environment (498)
   [DOI:10.1016/j.scitotenv.2024.174149](https://doi.org/10.1016/j.scitotenv.2024.174149)

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## To cycle or not to cycle
+## To Cycle or not to Cycle
 The `ggsankeyfier` package requires you to specify from which node, to which node an edge flows.
 See `vignette("data_management")` for more technical details on how this works. Consequently,
 this allows you to let edges flow to any node in any stage. In most cases, Sankey or alluvial
@@ -73,7 +73,7 @@ es_subset_feedback <-
 p %+% es_subset_feedback
 ```
 
-## Self reference
+## Self Reference
 
 Edges don't even have to flow from one stage to another regardless of its direction. Instead,
 it is also possible to let an edge flow from and to the same stage. In fact, you
