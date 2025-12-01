@@ -1,4 +1,4 @@
-ggsankeyfier v0.1.8.0012
+ggsankeyfier v0.1.8.0013
 -------------
 
  * Added better stacking order features
@@ -6,7 +6,7 @@ ggsankeyfier v0.1.8.0012
  * Added check workflow
  * Added code coverage workflow and badge
  * Improved test coverage
- * Expanded documentation
+ * Expanded / corrected documentation
  * Fix for [issue #23](https://github.com/pepijn-devries/ggsankeyfier/issues/23)
 
 ggsankeyfier v0.1.8

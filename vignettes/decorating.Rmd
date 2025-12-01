@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 ## Decorating Nodes and Edges with Aesthetics
 
 With the `waist` aesthetic you can modify the shape of the edge curve, this is
-presented in more detail in the [Curve shape] section. Here it is shown how Nodes and edges can
+presented in more detail in the [Curve shape] section. Here it is shown how nodes and edges can
 be decorated with the `colour` (border of nodes and edges), `fill` (inside of nodes and edges),
 and `alpha` aesthetics.
 

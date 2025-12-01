@@ -45,7 +45,7 @@ as output
 \item{guide}{Guide to use for this scale. Defaults to \code{"none"}.}
 }
 \value{
-Returns a \link[ggplot2:ggplot2-ggproto]{ggplot2::Scale} object which can be added to a \link[ggplot2:ggplot]{ggplot2::ggplot} to
+Returns a \link[ggplot2:Scale]{ggplot2::Scale} object which can be added to a \link[ggplot2:ggplot]{ggplot2::ggplot} to
 control the waist of Sankey diagram edges.
 }
 \description{
