@@ -64,7 +64,7 @@ illustration below.
 The `ggsankeyfier` package can only visualise structured graphs. Meaning
 that each node belongs to a specific stage (arranged along the x-axis).
 
-### Sankey thesaurus
+### Sankey Thesaurus
 
 As there are no standards in Sankey diagrams, there may be different
 words representing the same or similar aspects. Therefore, the following

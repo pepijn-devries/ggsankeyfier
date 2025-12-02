@@ -54,7 +54,7 @@ p <-
 
 In order to demonstrate a feedback loop we `rbind` a fictional edge to the demonstration data.
 Note that this feedback loop does not make any sense in the context of the data. It only
-serves as proof of principle. With the `%+%` operator we update the plot
+serves as proof of principle. With the `+` operator we update the plot
 with the data that includes the feedback loop.
 
 ```{r back}
@@ -70,7 +70,7 @@ es_subset_feedback <-
     )
   )
 
-p %+% es_subset_feedback
+p + es_subset_feedback
 ```
 
 ## Self Reference
@@ -94,5 +94,5 @@ es_subset_selfref <-
     )
   )
 
-p %+% es_subset_selfref
+p + es_subset_selfref
 ```

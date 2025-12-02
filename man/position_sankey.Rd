@@ -74,7 +74,7 @@ end of an edge (instead of the start; see examples).}
 \item{...}{Arguments passed on to \code{\link[ggplot2:ggproto]{ggplot2::ggproto()}}.}
 }
 \value{
-Returns a \code{\link[ggplot2:ggplot2-ggproto]{ggplot2::Position}} class object.
+Returns a \code{\link[ggplot2:Position]{ggplot2::Position}} class object.
 }
 \description{
 Calculates the \code{x} and \code{y} positions of elements (nodes and edges) in a
