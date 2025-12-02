@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0013</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0014</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,15 +62,20 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><blockquote>
-<p><code>ggsankeyfier</code> Go with the data flow</p>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.svg" class="logo" alt=""><h1 id="ggsankeyfier-">ggsankeyfier 
+<a class="anchor" aria-label="anchor" href="#ggsankeyfier-"></a>
+</h1>
+</div>
+<blockquote>
+<p>Go with the data flow</p>
 </blockquote>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
 <!-- badges: start -->
 
-<p><img src="reference/figures/logo.png" align="right" alt="logo"></p>
 <p>The <code>ggsankeyfier</code> packages allows you to visualise your data as Sankey or Alluvial diagrams. A Sankey diagram is essentially a stacked bar plot, where the bands connect bars across stages (on the x-axis), to show how quantities flow between them.</p>
 </div>
 <div class="section level2">
@@ -78,6 +83,11 @@
 </h2>
 <p><code>ggsankeyfier</code> allows you to add Sankey diagram layers to a <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>. The package also provides <code>stat_*</code> and <code>position_*</code> functions that allow you to add all sorts of other layers, such as text and labels.</p>
 <p>Furthermore, the data model used by the package allows you to visualise flows that skip stages or even feedback loops.</p>
+<p>And last but not least, in contrast to other packages, <code>ggsankeyfier</code> uses proportionate bands. In alluvial and Sankey diagrams data quantity flows are represented by bands that flow across stages. In order to effectively visualise quantities, the width of the band needs to be proportionate to the quantity. Other packages use a vertically oriented brush to plot the bands, making them narrow when the slope is steep. The <code>ggsankeyfier</code> package uses a brush that is perpendicular to the direction of the flow. This keeps the width along the band constant and proportionate with its representing quantity.</p>
+<p>This is illustrated in the animation below where both panels visualise the same quantity. As a reference a horizontal band representing the same quantity is shown. Note that the orientation of the brush affects its appearance.</p>
+<figure><img src="https://raw.githubusercontent.com/pepijn-devries/ggsankeyfier/refs/heads/master/data-raw/brushangle.gif" alt="Effectively visualising data flows requires a brush perpendicular to its path"><figcaption aria-hidden="true">
+Effectively visualising data flows requires a brush perpendicular to its path
+</figcaption></figure>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -215,7 +225,7 @@ Important aspects
 </li>
 </ul>
 </div>
-
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">

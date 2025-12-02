@@ -1,8 +1,8 @@
-> `ggsankeyfier` Go with the data flow
+# ggsankeyfier
+
+> Go with the data flow
 
 ## Overview
-
-![logo](reference/figures/logo.png)
 
 The `ggsankeyfier` packages allows you to visualise your data as Sankey
 or Alluvial diagrams. A Sankey diagram is essentially a stacked bar
@@ -18,6 +18,28 @@ you to add all sorts of other layers, such as text and labels.
 
 Furthermore, the data model used by the package allows you to visualise
 flows that skip stages or even feedback loops.
+
+And last but not least, in contrast to other packages, `ggsankeyfier`
+uses proportionate bands. In alluvial and Sankey diagrams data quantity
+flows are represented by bands that flow across stages. In order to
+effectively visualise quantities, the width of the band needs to be
+proportionate to the quantity. Other packages use a vertically oriented
+brush to plot the bands, making them narrow when the slope is steep. The
+`ggsankeyfier` package uses a brush that is perpendicular to the
+direction of the flow. This keeps the width along the band constant and
+proportionate with its representing quantity.
+
+This is illustrated in the animation below where both panels visualise
+the same quantity. As a reference a horizontal band representing the
+same quantity is shown. Note that the orientation of the brush affects
+its appearance.
+
+![Effectively visualising data flows requires a brush perpendicular to
+its
+path](https://raw.githubusercontent.com/pepijn-devries/ggsankeyfier/refs/heads/master/data-raw/brushangle.gif)
+
+Effectively visualising data flows requires a brush perpendicular to its
+path
 
 ## Installation
 
