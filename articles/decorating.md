@@ -4,7 +4,7 @@
 
 With the `waist` aesthetic you can modify the shape of the edge curve,
 this is presented in more detail in the [Curve shape](#curve-shape)
-section. Here it is shown how Nodes and edges can be decorated with the
+section. Here it is shown how nodes and edges can be decorated with the
 `colour` (border of nodes and edges), `fill` (inside of nodes and
 edges), and `alpha` aesthetics.
 
@@ -100,6 +100,8 @@ p +
 
 ## Curve Shape
 
+### Slope
+
 The curves that connect the nodes in `ggsankeyfier` are drawn as
 symmetrical widened
 [Bézier](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) curves. The
@@ -117,6 +119,8 @@ p +
 You could even go beyond the `slope` of 1, but then the curve will start
 to zigzag. With values less than 1 will result in gentler slopes.
 
+### Infliction Point
+
 You can also position the infliction point of the curve. By default it’s
 exactly at the center in between the two connecting nodes. By setting
 the `curve_weight` parameter to values close to zero, the infliction
@@ -132,6 +136,8 @@ p +
 ```
 
 ![](decorating_files/figure-html/curve_weight-1.png)
+
+### Waist
 
 We can also play with how much the curve is widened. By default the
 width of the curve is constant along the Bézier curve it follows. By

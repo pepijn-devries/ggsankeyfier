@@ -60,7 +60,7 @@ scale_waist_identity(..., guide = "none")
 ## Value
 
 Returns a
-[ggplot2::Scale](https://ggplot2.tidyverse.org/reference/ggplot2-ggproto.html)
+[ggplot2::Scale](https://ggplot2.tidyverse.org/reference/Scale.html)
 object which can be added to a
 [ggplot2::ggplot](https://ggplot2.tidyverse.org/reference/ggplot.html)
 to control the waist of Sankey diagram edges.

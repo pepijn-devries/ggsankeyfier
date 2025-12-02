@@ -23,13 +23,13 @@ Source:
 [`DESCRIPTION`](https://github.com/pepijn-devries/ggsankeyfier/blob/master/DESCRIPTION)
 
 de Vries P (2025). *ggsankeyfier: Create Sankey and Alluvial Diagrams
-Using 'ggplot2'*. R package version 0.1.8.0011,
+Using 'ggplot2'*. R package version 0.1.8.0013,
 <https://pepijn-devries.github.io/ggsankeyfier/>.
 
     @Manual{,
       title = {ggsankeyfier: Create Sankey and Alluvial Diagrams Using 'ggplot2'},
       author = {Pepijn {de Vries}},
       year = {2025},
-      note = {R package version 0.1.8.0011},
+      note = {R package version 0.1.8.0013},
       url = {https://pepijn-devries.github.io/ggsankeyfier/},
     }

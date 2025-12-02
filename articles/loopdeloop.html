@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0011</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0013</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,8 +114,8 @@ demonstrated in the present vignette.</p>
 <p>In order to demonstrate a feedback loop we <code>rbind</code> a
 fictional edge to the demonstration data. Note that this feedback loop
 does not make any sense in the context of the data. It only serves as
-proof of principle. With the <code>%+%</code> operator we update the
-plot with the data that includes the feedback loop.</p>
+proof of principle. With the <code>+</code> operator we update the plot
+with the data that includes the feedback loop.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">es_subset_feedback</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">es_subset</span> <span class="op">|&gt;</span></span>
@@ -129,12 +129,7 @@ plot with the data that includes the feedback loop.</p>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span> <span class="op"><a href="https://ggplot2.tidyverse.org/reference/gg-add.html" class="external-link">%+%</a></span> <span class="va">es_subset_feedback</span></span>
-<span><span class="co">#&gt; Warning: &lt;ggplot&gt; %+% x was deprecated in ggplot2 4.0.0.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use &lt;ggplot&gt; + x instead.</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span></code></pre></div>
+<span><span class="va">p</span> <span class="op">+</span> <span class="va">es_subset_feedback</span></span></code></pre></div>
 <p><img src="loopdeloop_files/figure-html/back-1.png" class="r-plt" width="700"></p>
 </div>
 <div class="section level2">
@@ -160,7 +155,7 @@ serves as proof of principle.</p>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span> <span class="op"><a href="https://ggplot2.tidyverse.org/reference/gg-add.html" class="external-link">%+%</a></span> <span class="va">es_subset_selfref</span></span></code></pre></div>
+<span><span class="va">p</span> <span class="op">+</span> <span class="va">es_subset_selfref</span></span></code></pre></div>
 <p><img src="loopdeloop_files/figure-html/selfref-1.png" class="r-plt" width="700"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

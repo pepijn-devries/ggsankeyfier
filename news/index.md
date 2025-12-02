@@ -1,6 +1,6 @@
 # Changelog
 
-## ggsankeyfier v0.1.8.0011
+## ggsankeyfier v0.1.8.0013
 
 - Added better stacking order features
 - Added `curve_weight` parameter to
@@ -8,7 +8,7 @@
 - Added check workflow
 - Added code coverage workflow and badge
 - Improved test coverage
-- Expanded documentation
+- Expanded / corrected documentation
 - Fix for
   [issue](https://github.com/pepijn-devries/ggsankeyfier/issues/23)
   [\#23](https://github.com/pepijn-devries/ggsankeyfier/issues/23)

@@ -106,7 +106,7 @@ An object of class `PositionSankey` (inherits from `Position`,
 ## Value
 
 Returns a
-[`ggplot2::Position`](https://ggplot2.tidyverse.org/reference/ggplot2-ggproto.html)
+[`ggplot2::Position`](https://ggplot2.tidyverse.org/reference/Position.html)
 class object.
 
 ## Details

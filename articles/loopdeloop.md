@@ -44,8 +44,8 @@ p <-
 In order to demonstrate a feedback loop we `rbind` a fictional edge to
 the demonstration data. Note that this feedback loop does not make any
 sense in the context of the data. It only serves as proof of principle.
-With the `%+%` operator we update the plot with the data that includes
-the feedback loop.
+With the `+` operator we update the plot with the data that includes the
+feedback loop.
 
 ``` r
 es_subset_feedback <-
@@ -60,12 +60,7 @@ es_subset_feedback <-
     )
   )
 
-p %+% es_subset_feedback
-#> Warning: <ggplot> %+% x was deprecated in ggplot2 4.0.0.
-#> ℹ Please use <ggplot> + x instead.
-#> This warning is displayed once every 8 hours.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
+p + es_subset_feedback
 ```
 
 ![](loopdeloop_files/figure-html/back-1.png)
@@ -92,7 +87,7 @@ es_subset_selfref <-
     )
   )
 
-p %+% es_subset_selfref
+p + es_subset_selfref
 ```
 
 ![](loopdeloop_files/figure-html/selfref-1.png)

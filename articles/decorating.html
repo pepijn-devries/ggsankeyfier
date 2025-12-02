@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggsankeyfier</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0011</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.8.0013</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,7 @@
 <h2 id="decorating-nodes-and-edges-with-aesthetics">Decorating Nodes and Edges with Aesthetics<a class="anchor" aria-label="anchor" href="#decorating-nodes-and-edges-with-aesthetics"></a>
 </h2>
 <p>With the <code>waist</code> aesthetic you can modify the shape of the
-edge curve, this is presented in more detail in the <a href="#curve-shape">Curve shape</a> section. Here it is shown how Nodes
+edge curve, this is presented in more detail in the <a href="#curve-shape">Curve shape</a> section. Here it is shown how nodes
 and edges can be decorated with the <code>colour</code> (border of nodes
 and edges), <code>fill</code> (inside of nodes and edges), and
 <code>alpha</code> aesthetics.</p>
@@ -156,6 +156,9 @@ and stats that are applied.</p>
 <div class="section level2">
 <h2 id="curve-shape">Curve Shape<a class="anchor" aria-label="anchor" href="#curve-shape"></a>
 </h2>
+<div class="section level3">
+<h3 id="slope">Slope<a class="anchor" aria-label="anchor" href="#slope"></a>
+</h3>
 <p>The curves that connect the nodes in <code>ggsankeyfier</code> are
 drawn as symmetrical widened <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve" class="external-link">Bézier</a>
 curves. The slope of the curve can be controlled with the
@@ -169,6 +172,10 @@ curves. The slope of the curve can be controlled with the
 <p>You could even go beyond the <code>slope</code> of 1, but then the
 curve will start to zigzag. With values less than 1 will result in
 gentler slopes.</p>
+</div>
+<div class="section level3">
+<h3 id="infliction-point">Infliction Point<a class="anchor" aria-label="anchor" href="#infliction-point"></a>
+</h3>
 <p>You can also position the infliction point of the curve. By default
 it’s exactly at the center in between the two connecting nodes. By
 setting the <code>curve_weight</code> parameter to values close to zero,
@@ -182,6 +189,10 @@ parameter).</p>
 <span>                  mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">service_section</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_sankeynode.html">geom_sankeynode</a></span><span class="op">(</span>position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span></span></code></pre></div>
 <p><img src="decorating_files/figure-html/curve_weight-1.png" class="r-plt" width="576"></p>
+</div>
+<div class="section level3">
+<h3 id="waist">Waist<a class="anchor" aria-label="anchor" href="#waist"></a>
+</h3>
 <p>We can also play with how much the curve is widened. By default the
 width of the curve is constant along the Bézier curve it follows. By
 setting the <code>waist</code> aesthetic, the width of the curve is
@@ -194,6 +205,7 @@ appearance of the waist and its legend keys.</p>
 <span>  <span class="fu"><a href="../reference/geom_sankeyedge.html">geom_sankeyedge</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>waist <span class="op">=</span> <span class="va">RCSES</span>, fill <span class="op">=</span> <span class="va">service_section</span><span class="op">)</span>, position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_sankeynode.html">geom_sankeynode</a></span><span class="op">(</span>position <span class="op">=</span> <span class="va">pos</span><span class="op">)</span></span></code></pre></div>
 <p><img src="decorating_files/figure-html/curve_waist-1.png" class="r-plt" width="576"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="keys-and-legends">Keys and Legends<a class="anchor" aria-label="anchor" href="#keys-and-legends"></a>
