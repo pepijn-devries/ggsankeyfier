@@ -171,7 +171,7 @@
       dplyr::ungroup() |>
       dplyr::mutate(
         y     = .data$y_cum,
-        ymin  = .data$y - .data$node_size/2, #TODO max nodesize!
+        ymin  = .data$y - .data$node_size/2,
         ymax  = .data$y + .data$node_size/2,
         xmin  = .data$x,
         xmax  = .data$x) |>
