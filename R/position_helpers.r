@@ -13,6 +13,7 @@
         )
     }
     data |>
+      dplyr::rename(dplyr::any_of(c(node_id = "group"))) |>
       .group_across("PANEL", "x", "node_id", "connector") |>
       dplyr::summarise(node_size = sum(.data$y)) |>
       .group_across("PANEL", "x", "node_id") |>
@@ -151,29 +152,29 @@
 
     rhs <- .group_across(data, "PANEL", "x", "group") |>
       dplyr::summarise(y = max(.data$y), .groups = "keep") |>
-      order_fun()
+      order_fun() |>
+      dplyr::rename(y_rhs = "y")  |>
+      .group_across("PANEL", "x") |>
+      dplyr::arrange(.data$node_order) |>
+      dplyr::mutate(y_cum        = cumsum(.data$y_rhs) -
+                      .data$y_rhs/2,
+                    n_nodes      = dplyr::n_distinct(.data$group),
+                    node_rank    = dplyr::row_number() - 1,
+                    ytot         = sum(.data$y_rhs),
+                    align_offset = .data$y_cum +
+                      (dplyr::row_number() - 1)*params$v_space)
 
     data |>
       dplyr::left_join(.stage_params(data, params), "x") |>
-      dplyr::left_join(
-        rhs |>
-          .group_across("PANEL", "x") |>
-          dplyr::arrange(.data$node_order) |>
-          dplyr::mutate(y_cum        = cumsum(.data$y) -
-                          .data$y/2,
-                        n_nodes      = dplyr::n_distinct(.data$group),
-                        ytot         = sum(.data$y),
-                        align_offset = .data$ytot +
-                          (.data$n_nodes - 1)*params$v_space),
-        c("PANEL", "x", "group")) |>
+      dplyr::left_join(rhs, c("PANEL", "x", "group")) |>
       dplyr::arrange(.data$node_order) |>
       dplyr::ungroup() |>
       dplyr::mutate(
-        y    = .data$y_cum,
-        ymin = .data$y - .data$node_size/2,
-        ymax = .data$y + .data$node_size/2,
-        xmin = .data$x,
-        xmax = .data$x) |>
+        y     = .data$y_cum,
+        ymin  = .data$y - .data$node_size/2, #TODO max nodesize!
+        ymax  = .data$y + .data$node_size/2,
+        xmin  = .data$x,
+        xmax  = .data$x) |>
       dplyr::select(!dplyr::any_of("y_cum")) |>
       .group_across("PANEL") |>
       dplyr::mutate(
@@ -197,9 +198,10 @@
         v_space    = max(.data$v_space)
       ) |>
       .group_across("PANEL", "x", "connector") |>
+      dplyr::arrange(.data$node_order) |>
       dplyr::mutate(
-        y_offset = (rank(.data$node_order, ties.method = "first") - 1)*.data$v_space[[1]] +
-          .data$align_offset,
+        y_offset = .data$node_rank *
+          .data$v_space,
         x_offset = ifelse(.data$split, .data$h_space*
                             ifelse(.data$connector == "from", .5, -.5), 0),
         y        = .data$y    + .data$y_offset + params$nudge_y,

@@ -33,7 +33,7 @@ Furthermore, the data model used by the package allows you to visualise
 flows that skip stages or even feedback loops.
 
 And last but not least, in contrast to other packages, `ggsankeyfier`
-uses proportionate bands. In alluvial and Sankey diagrams data quantity
+uses proportional bands. In alluvial and Sankey diagrams data quantity
 flows are represented by bands that flow across stages. In order to
 effectively visualise quantities, the width of the band needs to be
 proportionate to the quantity. Other packages use a vertically oriented
