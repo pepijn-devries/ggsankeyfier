@@ -1,3 +1,16 @@
+.compute_panel_statnodes_from_edgestats <- function(data) {
+  dplyr::bind_rows(
+    data |>
+      dplyr::select(!dplyr::contains("end"), dplyr::any_of("PANEL")) |>
+      dplyr::rename_with(\(x) gsub("_?end", "", x)),
+    data |>
+      dplyr::select(dplyr::contains("end"), dplyr::any_of("PANEL")) |>
+      dplyr::rename_with(\(x) gsub("_?end", "", x))
+  ) |>
+    dplyr::select("PANEL", "group", "node_id", x = "x_raw", y = "y_node", node_size = "y_node") |>
+    dplyr::distinct()
+}
+
 .compute_panel_statnodes <- function(self, data, params, scales) {
 
   if (missing(params)) params <- .setup_params_position(self, data)

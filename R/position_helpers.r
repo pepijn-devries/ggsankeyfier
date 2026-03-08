@@ -93,7 +93,22 @@
 .order_objects <- function(data, order) {
   order_aes <- endsWith(order, "+")
   order <- gsub("\\+$", "", order)
+  ## Always order nodes even for edges
   if ("edge_id" %in% names(data)) {
+    nodes <-
+      .compute_panel_statnodes_from_edgestats(data) |>
+      .order_nodes(order)
+    data <-
+      dplyr::left_join(
+        data,
+        dplyr::select(nodes, "node_id", "node_order"),
+        "node_id") |>
+      dplyr::left_join(
+        nodes |>
+          dplyr::select(node_id_end = "node_id",
+                        node_order_end = "node_order"),
+        "node_id_end"
+      )
     .order_edges(data, order, "start", order_aes) |>
       .order_edges(order, "end", order_aes)
   } else {
@@ -234,6 +249,26 @@
   )
 }
 
+.nodes_from_edges <- function(self, data, params, scales) {
+  nodes <- dplyr::bind_rows(
+    data |>
+      dplyr::select(dplyr::any_of(c("PANEL", "x", "y", "group", "edge_id"))) |>
+      dplyr::mutate(connector = "from"),
+    data |>
+      dplyr::select(dplyr::any_of(c("PANEL", x = "xend", y = "yend", group = "group_to", "edge_id"))) |>
+      dplyr::mutate(connector = "to")
+  ) |>
+    dplyr::filter(!(is.na(.data$x) & is.na(.data$y)))
+  nodes <- .compute_panel_statnodes(self, nodes, params, scales)
+  nodes <- .compute_layer_node_positions(self, nodes, params) |>
+    dplyr::ungroup() |>
+    dplyr::mutate(x_node = .data$x, x_raw = .data$x - .data$x_offset) |>
+    tidyr::unnest("edge_id") |>
+    dplyr::select(dplyr::any_of(c("PANEL", "connector", "edge_id", "x_node", "x_raw", "split", "width",
+                                  y_node = "y", y_node_size = "node_size")))
+  nodes
+}
+
 .compute_layer_edge_positions <-
   function(self, data, params, scales) {
     params <- .setup_params_position(self, data)
@@ -242,22 +277,7 @@
       order_fun <- \(x) .order_objects(x, params$order) else
         if (is.function(params$order)) order_fun <- params$order
 
-    nodes <- dplyr::bind_rows(
-      data |>
-        dplyr::select(dplyr::any_of(c("PANEL", "x", "y", "group", "edge_id"))) |>
-        dplyr::mutate(connector = "from"),
-      data |>
-        dplyr::select(dplyr::any_of(c("PANEL", x = "xend", y = "yend", group = "group_to", "edge_id"))) |>
-        dplyr::mutate(connector = "to")
-    ) |>
-      dplyr::filter(!(is.na(.data$x) & is.na(.data$y)))
-    nodes <- .compute_panel_statnodes(self, nodes, params, scales)
-    nodes <- .compute_layer_node_positions(self, nodes, params) |>
-      dplyr::ungroup() |>
-      dplyr::mutate(x_node = .data$x, x_raw = .data$x - .data$x_offset) |>
-      tidyr::unnest("edge_id") |>
-      dplyr::select(dplyr::any_of(c("PANEL", "connector", "edge_id", "x_node", "x_raw", "split", "width",
-                      y_node = "y", y_node_size = "node_size")))
+    nodes <- .nodes_from_edges(self, data, params, scales)
 
     data |>
       dplyr::rename_with(~gsub("_to$", "_end", .), dplyr::ends_with("_to")) |>
